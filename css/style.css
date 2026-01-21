@@ -208,6 +208,11 @@ a:hover {
   font-size: var(--text-lg);
 }
 
+.logo-img {
+  height: 32px;
+  width: auto;
+}
+
 .nav {
   display: flex;
   align-items: center;
