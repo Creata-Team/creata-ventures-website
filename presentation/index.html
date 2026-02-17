@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creata Ventures — Investor Deck 2026</title>
+
+    <!-- OG Meta Tags for social sharing -->
+    <meta property="og:title" content="Creata Ventures — The First Venture Studio in Central Asia">
+    <meta property="og:description" content="AIFC-registered venture studio. Institutional co-founding at the intersection of Creative Industries & DeepTech.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.creata.ventures/presentation">
+    <meta name="description" content="Creata Ventures Investor Deck 2026. The First Venture Studio in Central Asia — AIFC jurisdiction, 7 portfolio companies, 150+ years combined experience.">
+
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap">
+    <style>
+        /* ===========================================
+           THEME — Creata Ventures Dark Prestige
+           Change these variables to retheme the entire deck
+           =========================================== */
+        :root {
+            --bg-primary: #0a0f1c;
+            --bg-card: rgba(26, 54, 93, 0.15);
+            --bg-card-border: rgba(49, 130, 206, 0.12);
+            --navy: #1a365d;
+            --blue: #3182ce;
+            --blue-light: #63b3ed;
+            --gold: #d69e2e;
+            --gold-light: #f6e05e;
+            --white: #ffffff;
+            --gray-100: #f7fafc;
+            --gray-300: #cbd5e0;
+            --gray-400: #a0aec0;
+            --gray-500: #718096;
+            --gray-600: #4a5568;
+            --red: #fc8181;
+            --green: #68d391;
+
+            --font-display: 'Clash Display', sans-serif;
+            --font-body: 'Satoshi', sans-serif;
+
+            --slide-padding: clamp(2rem, 5vw, 5rem);
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --duration: 0.7s;
+        }
+
+        /* ===========================================
+           RESET & BASE
+           =========================================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            overflow-x: hidden;
+        }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===========================================
+           PROGRESS BAR — thin gold line at top
+           =========================================== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            z-index: 1000;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* ===========================================
+           NAV DOTS — right side
+           =========================================== */
+        .back-to-site {
+            position: fixed;
+            top: 1.2rem;
+            left: 1.5rem;
+            z-index: 200;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 1rem;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            color: var(--gray-400);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+        .back-to-site:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .nav-dots {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .nav-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        .nav-dot.active {
+            background: var(--gold);
+            box-shadow: 0 0 8px rgba(214, 158, 46, 0.4);
+            transform: scale(1.3);
+        }
+        .nav-dot:hover { background: rgba(255,255,255,0.4); }
+
+        /* Slide counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            letter-spacing: 1px;
+        }
+        .slide-counter .current { color: var(--gold); font-weight: 700; }
+
+        /* ===========================================
+           SLIDE — each section is one full-screen slide
+           =========================================== */
+        .slide {
+            min-height: 100vh;
+            padding: var(--slide-padding);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Shared background elements */
+        .slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .slide-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ===========================================
+           ANIMATIONS — triggered by .visible class
+           =========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--duration) var(--ease-out-expo),
+                        transform var(--duration) var(--ease-out-expo);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity var(--duration) var(--ease-out-expo),
+                        transform var(--duration) var(--ease-out-expo);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity var(--duration) var(--ease-out-expo),
+                        transform var(--duration) var(--ease-out-expo);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity var(--duration) var(--ease-out-expo),
+                        transform var(--duration) var(--ease-out-expo);
+        }
+        .slide.visible .reveal,
+        .slide.visible .reveal-left,
+        .slide.visible .reveal-right,
+        .slide.visible .reveal-scale {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+
+        /* Stagger delays */
+        .d1 { transition-delay: 0.1s; }
+        .d2 { transition-delay: 0.2s; }
+        .d3 { transition-delay: 0.3s; }
+        .d4 { transition-delay: 0.4s; }
+        .d5 { transition-delay: 0.5s; }
+        .d6 { transition-delay: 0.6s; }
+        .d7 { transition-delay: 0.7s; }
+        .d8 { transition-delay: 0.8s; }
+
+        /* ===========================================
+           GRADIENT ORBS — floating ambient lights
+           =========================================== */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+        }
+
+        /* ===========================================
+           TYPOGRAPHY
+           =========================================== */
+        .badge {
+            display: inline-block;
+            padding: 0.45rem 1.4rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-radius: 100px;
+        }
+        .badge-ghost {
+            border-color: rgba(255,255,255,0.2);
+            color: var(--gray-400);
+        }
+        .badge-blue {
+            border-color: var(--blue);
+            color: var(--blue-light);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            line-height: 1.08;
+        }
+        h2 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+        }
+        h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.1rem;
+            line-height: 1.3;
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gradient-blue {
+            background: linear-gradient(135deg, var(--blue), var(--blue-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .text-muted { color: var(--gray-400); }
+        .text-gray { color: var(--gray-500); }
+        .text-gold { color: var(--gold); }
+        .text-blue { color: var(--blue-light); }
+        .text-sm { font-size: 1rem; }
+        .text-xs { font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; }
+        .eyebrow {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* ===========================================
+           CARDS & LAYOUT COMPONENTS
+           =========================================== */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(49, 130, 206, 0.3);
+            transform: translateY(-2px);
+        }
+        .card-sm { padding: 1rem 1.25rem; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+        .flex-col { display: flex; flex-direction: column; }
+        .gap-1 { gap: 0.5rem; }
+        .gap-2 { gap: 1rem; }
+        .gap-3 { gap: 1.5rem; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Stat blocks */
+        .stat-big {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            margin-top: 0.3rem;
+        }
+
+        /* Comparison table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .compare-table th, .compare-table td {
+            padding: 0.85rem 1.2rem;
+            text-align: left;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .compare-table th {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--gray-300);
+        }
+        .compare-table td { color: var(--gray-400); }
+        .compare-table .col-highlight {
+            background: rgba(214, 158, 46, 0.06);
+            color: var(--white);
+            font-weight: 500;
+        }
+        .compare-table .col-highlight th {
+            color: var(--gold);
+        }
+
+        /* Portfolio mini cards */
+        .port-card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 10px;
+            padding: 1rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+        }
+        .port-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .port-card .name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        .port-card .sector {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+        .port-card .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+        .port-card .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+        .tag-pmf { background: rgba(104, 211, 145, 0.15); color: var(--green); }
+        .tag-active { background: rgba(49, 130, 206, 0.15); color: var(--blue-light); }
+        .tag-design { background: rgba(214, 158, 46, 0.15); color: var(--gold); }
+        .tag-pipeline { background: rgba(255,255,255,0.06); color: var(--gray-500); }
+        .tag-raising { background: rgba(252, 129, 129, 0.15); color: var(--red); }
+        .tag-ai { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
+
+        /* Team cards */
+        .team-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+        .team-avatar {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+        .team-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+        }
+        .team-role {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+        .team-cred {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* Pie chart */
+        .pie-chart {
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        /* AIFC benefit cards */
+        .benefit-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            background: rgba(214, 158, 46, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Highlight card for portfolio */
+        .highlight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .highlight-card .metric {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        /* Financial projections table */
+        .fin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+        }
+        .fin-table th {
+            padding: 0.75rem 1rem;
+            text-align: right;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gray-400);
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .fin-table th:first-child { text-align: left; }
+        .fin-table td {
+            padding: 0.6rem 0.75rem;
+            text-align: right;
+            color: var(--gray-300);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .fin-table td:first-child {
+            text-align: left;
+            color: var(--white);
+            font-weight: 500;
+        }
+        .fin-table tr:last-child td {
+            border-bottom: none;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Ask box */
+        .ask-box {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.4), rgba(49, 130, 206, 0.1));
+            border: 1px solid rgba(214, 158, 46, 0.25);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Bar chart */
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+        }
+        .bar-label {
+            width: 100px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .bar-track {
+            flex: 1;
+            height: 28px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding-left: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--white);
+            width: 0%;
+            transition: width 1.2s var(--ease-out-expo);
+        }
+        .slide.visible .bar-fill { /* JS sets width via data-width */ }
+
+        /* Keyboard hint */
+        .kbd-hint {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 100;
+            font-size: 0.65rem;
+            color: var(--gray-600);
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeIn 1s ease 2s forwards;
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* ===========================================
+           RESPONSIVE
+           =========================================== */
+        @media (max-width: 900px) {
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-dots { display: none; }
+            .stats-row { flex-wrap: wrap; }
+        }
+        @media (max-width: 600px) {
+            .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .compare-table { font-size: 0.75rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-left, .reveal-right, .reveal-scale {
+                transition: opacity 0.3s ease;
+                transform: none;
+            }
+            .orb { animation: none; }
+        }
+
+        /* ===========================================
+           SLIDE-SPECIFIC STYLES
+           =========================================== */
+        /* Slide 1: Cover */
+        .cover-slide { text-align: center; }
+        .cover-slide .orb-a {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(26, 54, 93, 0.6) 0%, transparent 70%);
+            top: -15%; left: -10%;
+            animation: floatA 8s ease-in-out infinite;
+        }
+        .cover-slide .orb-b {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(49, 130, 206, 0.3) 0%, transparent 70%);
+            bottom: -10%; right: -5%;
+            animation: floatA 10s ease-in-out infinite reverse;
+        }
+        .cover-slide .orb-c {
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(214, 158, 46, 0.15) 0%, transparent 70%);
+            top: 25%; right: 15%;
+            animation: floatA 6s ease-in-out infinite;
+        }
+        @keyframes floatA {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(15px, -15px); }
+        }
+
+        .cover-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+        /* Slide 5: Dream Team hero */
+        .team-hero-stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .team-hero-stat {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 14px;
+            min-width: 160px;
+        }
+        .team-hero-stat .num {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+
+        /* Slide 8: Portfolio grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .portfolio-grid .port-card {
+            min-height: 130px;
+            justify-content: center;
+        }
+
+        /* Slide 14: CTA */
+        .cta-slide {
+            text-align: center;
+        }
+        .cta-email {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--blue-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .cta-email:hover { border-color: var(--blue-light); }
+    </style>
+</head>
+<body>
+
+<!-- Back to main site -->
+<a href="/" class="back-to-site" title="Back to creata.ventures">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-right:6px;">
+        <path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    creata.ventures
+</a>
+
+<!-- Progress bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Navigation dots -->
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- Slide counter -->
+<div class="slide-counter">
+    <span class="current" id="slideNum">01</span> / <span id="slideTotal">14</span>
+</div>
+
+<!-- Keyboard hint -->
+<div class="kbd-hint">Arrow keys or scroll to navigate</div>
+
+
+<!-- ========================================
+     SLIDE 1: COVER
+     ======================================== -->
+<section class="slide cover-slide" data-title="Cover">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div class="slide-inner" style="text-align:center;">
+        <div class="reveal d1 badge mb-3">AIFC Jurisdiction &bull; Venture Studio</div>
+        <h1 class="reveal d2" style="margin-bottom:1rem;">The First Venture Studio<br>in <span class="gradient-gold">Central Asia</span></h1>
+        <p class="reveal d3 text-muted" style="font-size:1.15rem; max-width:600px; margin:0 auto;">
+            Building the future of Creative Industries & DeepTech<br>through institutional co-founding
+        </p>
+        <div class="reveal d4 divider" style="margin:2rem auto;"></div>
+        <div class="reveal d5 cover-stats">
+            <div>
+                <div class="stat-big gradient-blue">17</div>
+                <div class="stat-label">Portfolio Companies</div>
+            </div>
+            <div>
+                <div class="stat-big gradient-gold">150+</div>
+                <div class="stat-label">Years Combined Expertise</div>
+            </div>
+            <div>
+                <div class="stat-big" style="color:var(--white);">$500M+</div>
+                <div class="stat-label">Team Track Record</div>
+            </div>
+        </div>
+        <p class="reveal d6" style="margin-top:2.5rem; font-size:0.8rem; color:var(--gray-600);">
+            Creata Ventures Studio Ltd &bull; david@creata.team &bull; www.creata.ventures
+        </p>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 2: THE OPPORTUNITY
+     ======================================== -->
+<section class="slide" data-title="Opportunity">
+    <div class="orb" style="width:400px;height:400px;background:radial-gradient(circle,rgba(252,129,129,0.1) 0%,transparent 60%);top:10%;right:-5%;"></div>
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">The Problem</div>
+        <h2 class="reveal d2" style="max-width:700px;">Central Asia's<br><span class="gradient-gold">Innovation Gap</span></h2>
+        <div class="divider reveal d3"></div>
+        <div class="grid-3 reveal d4" style="margin-top:1.5rem;">
+            <div class="card">
+                <h3 style="color:var(--red); margin-bottom:0.75rem;">Founders Struggle</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+                    <li class="text-sm text-muted">90% of startups fail in first 3 years</li>
+                    <li class="text-sm text-muted">Limited access to smart capital</li>
+                    <li class="text-sm text-muted">No operational support or playbooks</li>
+                    <li class="text-sm text-muted">Fragmented mentor ecosystem</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--gold); margin-bottom:0.75rem;">Investors Frustrated</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+                    <li class="text-sm text-muted">Inconsistent deal flow quality</li>
+                    <li class="text-sm text-muted">High failure rates, low returns</li>
+                    <li class="text-sm text-muted">Limited exit opportunities</li>
+                    <li class="text-sm text-muted">No systematic approach to building</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--blue-light); margin-bottom:0.75rem;">Ecosystem Gap</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+                    <li class="text-sm text-muted">Creative industries massively underinvested</li>
+                    <li class="text-sm text-muted">DeepTech commercialization gap</li>
+                    <li class="text-sm text-muted">Brain drain to US/EU markets</li>
+                    <li class="text-sm text-muted">No venture studio model in region</li>
+                </ul>
+            </div>
+        </div>
+        <p class="reveal d5 text-sm text-gray" style="margin-top:1.5rem; text-align:center;">
+            Central Asia's 80M+ population, median age 27, and 7%+ GDP growth &mdash; yet less than 0.1% of global VC flows to the region.
+        </p>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 3: WHY NOW
+     ======================================== -->
+<section class="slide" data-title="Why Now">
+    <div class="orb" style="width:350px;height:350px;background:radial-gradient(circle,rgba(104,211,145,0.12) 0%,transparent 60%);bottom:5%;left:0;"></div>
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">Timing</div>
+        <h2 class="reveal d2">Why <span class="gradient-gold">Now</span></h2>
+        <div class="divider reveal d3"></div>
+        <div class="grid-2 reveal d4" style="margin-top:1.5rem; gap:1.25rem;">
+            <div class="card" style="display:flex; gap:1rem; align-items:flex-start;">
+                <div style="font-size:1.5rem; flex-shrink:0;">🏛</div>
+                <div>
+                    <h3 style="margin-bottom:0.3rem;">AIFC Maturity</h3>
+                    <p class="text-sm text-muted">English Common Law, 0% corporate tax for 50 years, investor-friendly regulation. The infrastructure is ready.</p>
+                </div>
+            </div>
+            <div class="card" style="display:flex; gap:1rem; align-items:flex-start;">
+                <div style="font-size:1.5rem; flex-shrink:0;">👥</div>
+                <div>
+                    <h3 style="margin-bottom:0.3rem;">Demographics</h3>
+                    <p class="text-sm text-muted">80M+ population across Central Asia. 70% under 35. Digital-native generation hungry for local products.</p>
+                </div>
+            </div>
+            <div class="card" style="display:flex; gap:1rem; align-items:flex-start;">
+                <div style="font-size:1.5rem; flex-shrink:0;">🚀</div>
+                <div>
+                    <h3 style="margin-bottom:0.3rem;">Government Push</h3>
+                    <p class="text-sm text-muted">Astana Hub (3,000+ startups), Digital Bridge Forum, national digitalization programs creating fertile ground.</p>
+                </div>
+            </div>
+            <div class="card" style="display:flex; gap:1rem; align-items:flex-start;">
+                <div style="font-size:1.5rem; flex-shrink:0;">🌍</div>
+                <div>
+                    <h3 style="margin-bottom:0.3rem;">Regional Growth</h3>
+                    <p class="text-sm text-muted">Kazakhstan GDP $260B+, Uzbekistan fastest-growing in CIS. Cross-border opportunities from Almaty to Tashkent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 4: OUR MODEL
+     ======================================== -->
+<section class="slide" data-title="Our Model">
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">How We Work</div>
+        <h2 class="reveal d2">Institutional <span class="gradient-gold">Co-Founder</span> Model</h2>
+        <p class="reveal d3 text-muted text-sm mb-4" style="max-width:600px;">We don't just invest in founders &mdash; we build with them. 24 months of hands-on partnership.</p>
+
+        <div class="reveal d4" style="overflow-x:auto;">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="min-width:140px;"></th>
+                        <th>Traditional VC</th>
+                        <th>Accelerator</th>
+                        <th class="col-highlight">Creata Ventures</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color:var(--gray-300); font-weight:500;">Involvement</td>
+                        <td>Capital only</td>
+                        <td>3-month program</td>
+                        <td class="col-highlight">24-month co-building</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--gray-300); font-weight:500;">Equity</td>
+                        <td>10-20%</td>
+                        <td>6-8%</td>
+                        <td class="col-highlight">25-40%</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--gray-300); font-weight:500;">Support</td>
+                        <td>Board seat</td>
+                        <td>Mentorship</td>
+                        <td class="col-highlight">Strategy + Ops + Capital</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--gray-300); font-weight:500;">Check-ins</td>
+                        <td>Quarterly</td>
+                        <td>Weekly (12 weeks)</td>
+                        <td class="col-highlight">Weekly (24 months)</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--gray-300); font-weight:500;">Success Rate</td>
+                        <td>1 in 10</td>
+                        <td>1 in 8</td>
+                        <td class="col-highlight" style="color:var(--gold);">1 in 3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="reveal d5 grid-3" style="margin-top:2rem;">
+            <div style="text-align:center;">
+                <div class="stat-big gradient-blue">Strategy</div>
+                <p class="text-xs text-gray" style="margin-top:0.5rem;">Market validation, business model, go-to-market, investor readiness</p>
+            </div>
+            <div style="text-align:center;">
+                <div class="stat-big gradient-gold">Operations</div>
+                <p class="text-xs text-gray" style="margin-top:0.5rem;">Product development, team building, financial planning, legal</p>
+            </div>
+            <div style="text-align:center;">
+                <div class="stat-big" style="color:var(--white);">Capital</div>
+                <p class="text-xs text-gray" style="margin-top:0.5rem;">Seed funding, follow-on coordination, investor network access</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 5: THE DREAM TEAM (Hero)
+     ======================================== -->
+<section class="slide" data-title="Team">
+    <div class="orb" style="width:500px;height:500px;background:radial-gradient(circle,rgba(214,158,46,0.12) 0%,transparent 60%);top:-10%;left:30%;"></div>
+    <div class="slide-inner" style="text-align:center;">
+        <div class="eyebrow reveal d1">Our Edge</div>
+        <h2 class="reveal d2" style="font-size:clamp(2rem,4vw,3.2rem);">A Team Built to <span class="gradient-gold">Win</span></h2>
+        <p class="reveal d3 text-muted mb-4" style="max-width:550px; margin-left:auto; margin-right:auto;">
+            World-class operators and advisors with decades of experience building, investing, and scaling.
+        </p>
+
+        <div class="reveal d4 team-hero-stats">
+            <div class="team-hero-stat">
+                <div class="num gradient-gold">150+</div>
+                <div class="stat-label">Years Combined</div>
+            </div>
+            <div class="team-hero-stat">
+                <div class="num gradient-blue">$500M+</div>
+                <div class="stat-label">Funds Managed</div>
+            </div>
+            <div class="team-hero-stat">
+                <div class="num" style="color:var(--white);">$61.5B</div>
+                <div class="stat-label">Sovereign Fund Exp.</div>
+            </div>
+            <div class="team-hero-stat">
+                <div class="num gradient-gold">12,000+</div>
+                <div class="stat-label">Leaders Trained</div>
+            </div>
+        </div>
+
+        <div class="reveal d5" style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center;">
+            <span class="badge badge-ghost">World Bank</span>
+            <span class="badge badge-ghost">RUSNANO</span>
+            <span class="badge badge-ghost">Samruk-Kazyna</span>
+            <span class="badge badge-ghost">Kellogg MBA</span>
+            <span class="badge badge-ghost">Oxford MBA</span>
+            <span class="badge badge-ghost">Stanford D.School</span>
+            <span class="badge badge-ghost">EBRD</span>
+            <span class="badge badge-ghost">Helsinki School</span>
+        </div>
+
+        <div class="reveal d6" style="margin-top:1.5rem; display:flex; gap:1rem; justify-content:center; font-size:1.4rem;">
+            <span title="Kazakhstan">&#127472;&#127487;</span>
+            <span title="Russia">&#127479;&#127482;</span>
+            <span title="USA">&#127482;&#127480;</span>
+            <span title="Israel">&#127470;&#127473;</span>
+            <span title="UK">&#127468;&#127463;</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 6: TEAM PROFILES
+     ======================================== -->
+<section class="slide" data-title="Venture Partners">
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">Our People</div>
+        <h2 class="reveal d2 mb-3">Venture Partners</h2>
+
+        <div class="reveal d3" style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:1rem;">
+            <!-- David Tuganov — Founder -->
+            <div class="card" style="text-align:center; padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px; border-color:var(--gold); border-width:1px; border-style:solid;">
+                <div style="width:72px; height:72px; border-radius:50%; overflow:hidden; margin-bottom:0.6rem; border:2px solid var(--gold); box-shadow:0 0 12px rgba(214,158,46,0.2);">
+                    <img src="assets/david-tuganov.jpg" alt="David Tuganov" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="team-name">David Tuganov</div>
+                <div style="font-size:1rem; margin:0.2rem 0;">&#127472;&#127487;</div>
+                <div style="font-size:0.8rem; color:var(--gold); font-weight:500; margin:0.2rem 0;">Founder & MD</div>
+                <div style="font-size:0.8rem; color:var(--gray-500); line-height:1.6;">Ex-Deputy Group CIO, Samruk-Kazyna ($61.5B fund)<br>9 institutions built &bull; 200+ startups accelerated</div>
+            </div>
+            <!-- Sergey Makarov -->
+            <div class="card" style="text-align:center; padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px;">
+                <div style="width:72px; height:72px; border-radius:50%; overflow:hidden; margin-bottom:0.6rem; border:2px solid var(--bg-card-border);">
+                    <img src="assets/sergey-makarov.jpg" alt="Sergey Makarov" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="team-name">Sergey Makarov</div>
+                <div style="font-size:1rem; margin:0.2rem 0;">&#127479;&#127482;</div>
+                <div style="font-size:0.8rem; color:var(--gold); font-weight:500; margin:0.2rem 0;">Venture & Innovation</div>
+                <div style="font-size:0.8rem; color:var(--gray-500); line-height:1.6;">20+ yrs &bull; World Bank consultant<br>Ex-Russian Venture Company</div>
+            </div>
+            <!-- Kendrick White -->
+            <div class="card" style="text-align:center; padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px;">
+                <div style="width:72px; height:72px; border-radius:50%; overflow:hidden; margin-bottom:0.6rem; border:2px solid var(--bg-card-border);">
+                    <img src="assets/kendrick-white.jpg" alt="Kendrick White" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="team-name">Kendrick White</div>
+                <div style="font-size:1rem; margin:0.2rem 0;">&#127482;&#127480;</div>
+                <div style="font-size:0.8rem; color:var(--gold); font-weight:500; margin:0.2rem 0;">Tech Commercialization</div>
+                <div style="font-size:0.8rem; color:var(--gray-500); line-height:1.6;">30+ yrs &bull; MBA Kellogg (Northwestern)<br>Founder Marchmont Capital Partners</div>
+            </div>
+            <!-- Evgeny Evdokimov -->
+            <div class="card" style="text-align:center; padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px;">
+                <div style="width:72px; height:72px; border-radius:50%; overflow:hidden; margin-bottom:0.6rem; border:2px solid var(--bg-card-border);">
+                    <img src="assets/evgeny-evdokimov.jpg" alt="Evgeny Evdokimov" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="team-name">Evgeny Evdokimov</div>
+                <div style="font-size:1rem; margin:0.2rem 0;">&#127470;&#127473;</div>
+                <div style="font-size:0.8rem; color:var(--gold); font-weight:500; margin:0.2rem 0;">Venture Capital</div>
+                <div style="font-size:0.8rem; color:var(--gray-500); line-height:1.6;">30+ yrs &bull; Ex-RUSNANO MD<br>$500M under management</div>
+            </div>
+        </div>
+        <div class="reveal d4" style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; max-width:75%; margin:0 auto;">
+            <!-- Ekaterina Runova -->
+            <div class="card" style="text-align:center; padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px;">
+                <div style="width:72px; height:72px; border-radius:50%; overflow:hidden; margin-bottom:0.6rem; border:2px solid var(--bg-card-border);">
+                    <img src="assets/ekaterina-runova.jpg" alt="Ekaterina Runova" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="team-name">Ekaterina Runova</div>
+                <div style="font-size:1rem; margin:0.2rem 0;">&#127479;&#127482;</div>
+                <div style="font-size:0.8rem; color:var(--gold); font-weight:500; margin:0.2rem 0;">IP & Tech Transfer</div>
+                <div style="font-size:0.8rem; color:var(--gray-500); line-height:1.6;">PhD Biology &bull; Biotech co-founder<br>HSE &bull; Patent research</div>
+            </div>
+            <!-- Abylay Akhymbekov -->
+            <div class="card" style="text-align:center; padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px;">
+                <div style="width:72px; height:72px; border-radius:50%; overflow:hidden; margin-bottom:0.6rem; border:2px solid var(--bg-card-border);">
+                    <img src="assets/abylay-akhymbekov.jpg" alt="Abylay Akhymbekov" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="team-name">Abylay Akhymbekov</div>
+                <div style="font-size:1rem; margin:0.2rem 0;">&#127472;&#127487;</div>
+                <div style="font-size:0.8rem; color:var(--gold); font-weight:500; margin:0.2rem 0;">Technology Broker</div>
+                <div style="font-size:0.8rem; color:var(--gray-500); line-height:1.6;">MSc Manchester (Bolashak)<br>World Bank projects &bull; CEO UDB</div>
+            </div>
+            <!-- Santosh Dubey -->
+            <div class="card" style="text-align:center; padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px;">
+                <div class="team-avatar" style="width:72px; height:72px; font-size:1rem; margin-bottom:0.6rem;">SD</div>
+                <div class="team-name">Santosh Dubey</div>
+                <div style="font-size:1rem; margin:0.2rem 0;">&#127468;&#127463;</div>
+                <div style="font-size:0.8rem; color:var(--gold); font-weight:500; margin:0.2rem 0;">Infrastructure & Systems</div>
+                <div style="font-size:0.8rem; color:var(--gray-500); line-height:1.6;">Oxford MBA &bull; TOGAF 9<br>Heathrow, Changi, National Grid</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 7: INVESTMENT THESIS
+     ======================================== -->
+<section class="slide" data-title="Thesis">
+    <div class="orb" style="width:350px;height:350px;background:radial-gradient(circle,rgba(49,130,206,0.15) 0%,transparent 60%);top:5%;right:-5%;"></div>
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">Where We Play</div>
+        <h2 class="reveal d2"><span class="gradient-gold">Creative Industries</span> + <span class="gradient-blue">DeepTech</span></h2>
+        <p class="reveal d3 text-muted text-sm mb-4" style="max-width:600px;">Two high-growth sectors at the intersection of regional talent and global demand.</p>
+
+        <div class="reveal d4 grid-2" style="gap:2rem;">
+            <!-- Creative Industries -->
+            <div class="card" style="border-color:rgba(214,158,46,0.2);">
+                <div class="badge" style="margin-bottom:1rem;">Creative Industries</div>
+                <div style="display:flex; flex-direction:column; gap:1rem;">
+                    <div>
+                        <h3>🎮 GameDev</h3>
+                        <p class="text-sm text-muted">Mobile games, turn-based tactics, AR/VR experiences</p>
+                    </div>
+                    <div>
+                        <h3>🎵 Digital Content & Music</h3>
+                        <p class="text-sm text-muted">New media, content production, music distribution</p>
+                    </div>
+                    <div>
+                        <h3>🎨 Design & Cultural Tech</h3>
+                        <p class="text-sm text-muted">Creator marketplaces, ethno-cultural hubs, UX</p>
+                    </div>
+                </div>
+            </div>
+            <!-- DeepTech -->
+            <div class="card" style="border-color:rgba(49,130,206,0.2);">
+                <div class="badge badge-blue" style="margin-bottom:1rem;">DeepTech</div>
+                <div style="display:flex; flex-direction:column; gap:1rem;">
+                    <div>
+                        <h3>🧠 HealthTech / NeuroTech</h3>
+                        <p class="text-sm text-muted">EEG psychotherapy, AI health protocols, chronic disease reversal</p>
+                    </div>
+                    <div>
+                        <h3>🧬 BioTech / AgriTech</h3>
+                        <p class="text-sm text-muted">Fermented feed additives, agricultural waste valorization</p>
+                    </div>
+                    <div>
+                        <h3>🔬 Industrial DeepTech</h3>
+                        <p class="text-sm text-muted">MHD aluminizing, materials science, green technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal d5" style="margin-top:1.5rem; text-align:center;">
+            <p class="text-sm text-gray">Geography: <strong style="color:var(--white);">Kazakhstan → Uzbekistan → CIS → Global</strong> &nbsp;|&nbsp; Stage: <strong style="color:var(--white);">Pre-Seed to Seed</strong></p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 8: PORTFOLIO OVERVIEW
+     ======================================== -->
+<section class="slide" data-title="Portfolio">
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">Our Portfolio</div>
+        <h2 class="reveal d2 mb-1">8 Companies Across <span class="gradient-gold">7 Industries</span></h2>
+        <p class="reveal d3 text-sm text-muted mb-3">Internal ventures + equity stakes + strategic partnerships</p>
+
+        <div class="reveal d4 portfolio-grid">
+            <div class="port-card">
+                <div class="tags"><span class="tag tag-active">Mental Health</span><span class="tag tag-ai">AI</span></div>
+                <span class="name">iWendy</span>
+                <span class="sector">MBTI-based founder matching &bull; Team optimization platform</span>
+            </div>
+            <div class="port-card">
+                <div class="tags"><span class="tag tag-pmf">HealthTech</span><span class="tag tag-ai">AI</span></div>
+                <span class="name">Regain</span>
+                <span class="sector">AI lifestyle protocols &bull; Chronic disease reversal &bull; regain.ai</span>
+            </div>
+            <div class="port-card">
+                <div class="tags"><span class="tag tag-active">AgriTech</span></div>
+                <span class="name">CBFeed</span>
+                <span class="sector">Patented fermented feed additives &bull; Agricultural waste valorization</span>
+            </div>
+            <div class="port-card">
+                <div class="tags"><span class="tag tag-raising">Gaming</span></div>
+                <span class="name">Lipsar Studio</span>
+                <span class="sector">Turn-based tactics &bull; WoD, Warhammer 40K, D&amp;D &bull; 40+ team</span>
+            </div>
+            <div class="port-card">
+                <div class="tags"><span class="tag tag-design">DeepTech</span></div>
+                <span class="name">ALUMINICO</span>
+                <span class="sector">MHD hot aluminizing &bull; Anti-corrosion steel protection</span>
+            </div>
+            <div class="port-card">
+                <div class="tags"><span class="tag tag-active">Creative Industries</span></div>
+                <span class="name">Bazaart</span>
+                <span class="sector">1-hectare ethno-cultural hub &bull; Almaty</span>
+            </div>
+            <div class="port-card">
+                <div class="tags"><span class="tag tag-active">B2B SaaS</span><span class="tag tag-ai">AI</span></div>
+                <span class="name">RiDraw</span>
+                <span class="sector">Organizational resilience platform &bull; Airports, healthcare, farms</span>
+            </div>
+            <div class="port-card">
+                <div class="tags"><span class="tag tag-pmf">BioTech</span></div>
+                <span class="name">AGC</span>
+                <span class="sector">Kazakhstan's first NGS genetic lab &bull; BGI partnership &bull; JV with Forebright</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 9: PORTFOLIO HIGHLIGHTS
+     ======================================== -->
+<section class="slide" data-title="Highlights">
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">Standout Companies</div>
+        <h2 class="reveal d2 mb-3">Portfolio <span class="gradient-gold">Highlights</span></h2>
+
+        <div class="reveal d3 grid-2" style="gap:1.25rem;">
+            <!-- Regain -->
+            <div class="highlight-card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3>Regain</h3>
+                    <span class="tag tag-pmf">HealthTech</span>
+                </div>
+                <p class="text-sm text-muted">AI transforms lab reports into personalized lifestyle protocols for chronic diseases.</p>
+                <div class="divider" style="margin:0.5rem 0;"></div>
+                <div class="metric gradient-blue">$30K ARR</div>
+                <div class="text-xs text-gray">3,000+ patients &bull; $650K grants &bull; Yale RCT planned</div>
+            </div>
+
+            <!-- ALUMINICO -->
+            <div class="highlight-card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3>ALUMINICO</h3>
+                    <span class="tag tag-design">DeepTech</span>
+                </div>
+                <p class="text-sm text-muted">Revolutionary MHD hot aluminizing technology for anti-corrosion steel protection.</p>
+                <div class="divider" style="margin:0.5rem 0;"></div>
+                <div class="metric gradient-gold">$600K</div>
+                <div class="text-xs text-gray">World Bank grant &bull; 2 patents &bull; 64% cost savings</div>
+            </div>
+
+            <!-- Lipsar -->
+            <div class="highlight-card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3>Lipsar Studio</h3>
+                    <span class="tag tag-raising">Gaming</span>
+                </div>
+                <p class="text-sm text-muted">Turn-based tactics studio. Major franchise IPs: World of Darkness, Warhammer 40K, D&amp;D.</p>
+                <div class="divider" style="margin:0.5rem 0;"></div>
+                <div class="metric gradient-blue">40+</div>
+                <div class="text-xs text-gray">Team members &bull; $20-40M revenue/title &bull; AstanaHub resident</div>
+            </div>
+
+            <!-- CBFeed -->
+            <div class="highlight-card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3>CBFeed</h3>
+                    <span class="tag tag-active">AgriTech</span>
+                </div>
+                <p class="text-sm text-muted">Patented fermented feed additives from agricultural waste. BioTech meets AgriTech.</p>
+                <div class="divider" style="margin:0.5rem 0;"></div>
+                <div class="metric" style="color:var(--white);">Uzbekistan</div>
+                <div class="text-xs text-gray">Patented technology &bull; Regional scalability</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 10: AIFC ADVANTAGE
+     ======================================== -->
+<section class="slide" data-title="AIFC">
+    <div class="orb" style="width:400px;height:400px;background:radial-gradient(circle,rgba(214,158,46,0.1) 0%,transparent 60%);bottom:-10%;right:10%;"></div>
+    <div class="slide-inner" style="text-align:center;">
+        <div class="eyebrow reveal d1">Structural Advantage</div>
+        <h2 class="reveal d2">The <span class="gradient-gold">AIFC</span> Edge</h2>
+        <p class="reveal d3 text-muted text-sm mb-4" style="max-width:550px; margin:0 auto;">
+            Astana International Financial Centre &mdash; the region's gateway to global capital markets.
+        </p>
+
+        <div class="reveal d4 grid-4" style="max-width:900px; margin:0 auto;">
+            <div class="card" style="text-align:center;">
+                <div class="benefit-icon" style="margin:0 auto 0.75rem;">⚖️</div>
+                <h3 style="margin-bottom:0.3rem;">English Common Law</h3>
+                <p class="text-xs text-gray" style="text-transform:none; letter-spacing:0;">International legal framework. Independent court system (AIFC Court).</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div class="benefit-icon" style="margin:0 auto 0.75rem;">🏦</div>
+                <h3 style="margin-bottom:0.3rem;">0% Corporate Tax</h3>
+                <p class="text-xs text-gray" style="text-transform:none; letter-spacing:0;">Tax exemption guaranteed for 50 years until 2066.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div class="benefit-icon" style="margin:0 auto 0.75rem;">🌐</div>
+                <h3 style="margin-bottom:0.3rem;">Global Capital Access</h3>
+                <p class="text-xs text-gray" style="text-transform:none; letter-spacing:0;">Direct gateway to international investors and funds.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div class="benefit-icon" style="margin:0 auto 0.75rem;">🛡</div>
+                <h3 style="margin-bottom:0.3rem;">Investor Protection</h3>
+                <p class="text-xs text-gray" style="text-transform:none; letter-spacing:0;">Investor-friendly regulations and dispute resolution.</p>
+            </div>
+        </div>
+
+        <div class="reveal d5 card" style="max-width:700px; margin:2rem auto 0; text-align:left; display:flex; gap:1.5rem; align-items:center;">
+            <div style="font-size:2rem; flex-shrink:0;">🏛</div>
+            <div>
+                <p class="text-sm" style="color:var(--white);"><strong>Creata Ventures Studio Ltd</strong> is registered as a <strong style="color:var(--gold);">Venture Studio Company</strong> within AIFC jurisdiction.</p>
+                <p class="text-xs text-gray" style="margin-top:0.3rem; text-transform:none; letter-spacing:0;">Venture Sponsorship Agreement under AIFC law governs all portfolio company relationships.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 11: BUSINESS MODEL
+     ======================================== -->
+<section class="slide" data-title="Business Model">
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">How We Make Money</div>
+        <h2 class="reveal d2 mb-3">Business Model & <span class="gradient-gold">Unit Economics</span></h2>
+
+        <div class="reveal d3 grid-2" style="gap:2.5rem; align-items:start;">
+            <!-- Revenue Streams -->
+            <div>
+                <h3 class="mb-2" style="color:var(--gray-300);">Revenue Streams</h3>
+                <div class="bar-row">
+                    <span class="bar-label">Equity Returns</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" data-width="75" style="background:linear-gradient(90deg, var(--gold), var(--gold-light));">70-80%</div>
+                    </div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Mgmt Fees</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" data-width="20" style="background:linear-gradient(90deg, var(--blue), var(--blue-light));">15-20%</div>
+                    </div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Advisory</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" data-width="10" style="background:linear-gradient(90deg, var(--gray-500), var(--gray-400));">5-10%</div>
+                    </div>
+                </div>
+
+                <div style="margin-top:2rem;">
+                    <h3 class="mb-2" style="color:var(--gray-300);">Target Returns</h3>
+                    <div style="display:flex; gap:2rem;">
+                        <div>
+                            <div class="stat-big gradient-gold">5-6x</div>
+                            <div class="stat-label">Blended Multiple</div>
+                        </div>
+                        <div>
+                            <div class="stat-big gradient-blue">40-60%</div>
+                            <div class="stat-label">Target IRR</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit Economics -->
+            <div>
+                <h3 class="mb-2" style="color:var(--gray-300);">Per Venture Economics</h3>
+                <div class="card">
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="display:flex; justify-content:space-between;">
+                            <span class="text-sm text-muted">Average investment</span>
+                            <span class="text-sm" style="font-weight:600;">$150K</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span class="text-sm text-muted">Target equity</span>
+                            <span class="text-sm" style="font-weight:600;">30%</span>
+                        </div>
+                        <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:0.75rem;">
+                            <p class="text-xs text-gray mb-1" style="letter-spacing:1px;">EXPECTED OUTCOMES</p>
+                            <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                                <div style="display:flex; justify-content:space-between;">
+                                    <span class="text-sm text-muted">40% fail</span>
+                                    <span class="text-sm text-gray">0x</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between;">
+                                    <span class="text-sm text-muted">35% modest exit</span>
+                                    <span class="text-sm" style="color:var(--blue-light);">2-4x</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between;">
+                                    <span class="text-sm text-muted">20% strong exit</span>
+                                    <span class="text-sm" style="color:var(--gold);">5-10x</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between;">
+                                    <span class="text-sm text-muted">5% home run</span>
+                                    <span class="text-sm" style="color:var(--gold-light); font-weight:700;">20x+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 12: FINANCIAL PROJECTIONS
+     ======================================== -->
+<section class="slide" data-title="Financials">
+    <div class="slide-inner">
+        <div class="eyebrow reveal d1">Path to Returns</div>
+        <h2 class="reveal d2 mb-3">5-Year <span class="gradient-gold">Financial Projections</span></h2>
+
+        <div class="reveal d3 card" style="padding:2rem; overflow-x:auto;">
+            <table class="fin-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:left;">Metric</th>
+                        <th>2025</th>
+                        <th>2026</th>
+                        <th>2027</th>
+                        <th>2028</th>
+                        <th>2029</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>New Ventures</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Cumulative Portfolio</td>
+                        <td>3</td>
+                        <td>6</td>
+                        <td>10</td>
+                        <td>14</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>Annual Investment</td>
+                        <td>$300K</td>
+                        <td>$450K</td>
+                        <td>$600K</td>
+                        <td>$600K</td>
+                        <td>$700K</td>
+                    </tr>
+                    <tr>
+                        <td>Portfolio Value</td>
+                        <td>$600K</td>
+                        <td>$1.8M</td>
+                        <td>$4M</td>
+                        <td>$8M</td>
+                        <td>$15M</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="reveal d4 grid-3" style="margin-top:1.5rem;">
+            <div class="card" style="text-align:center;">
+                <div class="stat-big" style="color:var(--white);">3x/yr</div>
+                <div class="stat-label">Portfolio Company Growth</div>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div class="stat-big gradient-gold">5-6x</div>
+                <div class="stat-label">Exit Multiple on Winners</div>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div class="stat-big gradient-blue">$15M</div>
+                <div class="stat-label">Portfolio Value by 2029</div>
+            </div>
+        </div>
+
+        <p class="reveal d5 text-xs text-gray" style="margin-top:1.5rem; text-align:center;">
+            Assumptions: avg. $150K investment per venture, 30% equity stake, blended 5-6x multiple on winners. Regional M&amp;A + international expansion as primary exit paths.
+        </p>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 13: THE ASK
+     ======================================== -->
+<section class="slide" data-title="The Ask">
+    <div class="orb" style="width:450px;height:450px;background:radial-gradient(circle,rgba(214,158,46,0.12) 0%,transparent 60%);top:10%;left:-5%;"></div>
+    <div class="slide-inner" style="text-align:center;">
+        <div class="eyebrow reveal d1">Investment Opportunity</div>
+        <h2 class="reveal d2 mb-4">The <span class="gradient-gold">Ask</span></h2>
+
+        <div class="reveal d3 ask-box">
+            <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; margin-bottom:2rem;">
+                <div>
+                    <div class="stat-big gradient-gold" style="font-size:3rem;">$1.5M</div>
+                    <div class="stat-label">Seed Round</div>
+                </div>
+                <div>
+                    <div class="stat-big" style="font-size:3rem; color:var(--white);">$5M</div>
+                    <div class="stat-label">Pre-Money Valuation</div>
+                </div>
+                <div>
+                    <div class="stat-big gradient-blue" style="font-size:3rem;">$100K</div>
+                    <div class="stat-label">Minimum Check</div>
+                </div>
+            </div>
+
+            <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:1.5rem;">
+                <p class="text-xs text-gray mb-2" style="letter-spacing:2px;">USE OF FUNDS</p>
+                <div style="display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;">
+                    <div style="text-align:center;">
+                        <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--gold);">60%</div>
+                        <div class="text-xs text-gray" style="text-transform:none; letter-spacing:0;">Portfolio Investment<br>$900K &bull; 6 new ventures</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--blue-light);">25%</div>
+                        <div class="text-xs text-gray" style="text-transform:none; letter-spacing:0;">Operations<br>$375K &bull; Team &amp; Tools</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--gray-400);">15%</div>
+                        <div class="text-xs text-gray" style="text-transform:none; letter-spacing:0;">Reserve<br>$225K &bull; Contingency</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal d4" style="margin-top:2rem; display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
+            <div class="card card-sm" style="text-align:center; min-width:160px;">
+                <div style="font-weight:600; color:var(--gold);">5-6x</div>
+                <div class="text-xs text-gray">Target Return</div>
+            </div>
+            <div class="card card-sm" style="text-align:center; min-width:160px;">
+                <div style="font-weight:600; color:var(--white);">7-10 yrs</div>
+                <div class="text-xs text-gray">Investment Horizon</div>
+            </div>
+            <div class="card card-sm" style="text-align:center; min-width:160px;">
+                <div style="font-weight:600; color:var(--blue-light);">Equity</div>
+                <div class="text-xs text-gray">Structure: Direct Equity in Creata Ventures Studio Ltd</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================
+     SLIDE 14: CONTACT & CTA
+     ======================================== -->
+<section class="slide cta-slide" data-title="Contact">
+    <div class="orb" style="width:500px;height:500px;background:radial-gradient(circle,rgba(26,54,93,0.5) 0%,transparent 60%);top:20%;left:30%;"></div>
+    <div class="orb" style="width:250px;height:250px;background:radial-gradient(circle,rgba(214,158,46,0.12) 0%,transparent 60%);bottom:15%;right:20%;"></div>
+    <div class="slide-inner" style="text-align:center;">
+        <div class="reveal d1 badge mb-4">Let's Build Together</div>
+        <h1 class="reveal d2" style="margin-bottom:1rem;">
+            The Future of <span class="gradient-gold">Central Asia</span><br>Starts Here
+        </h1>
+        <p class="reveal d3 text-muted" style="font-size:1.1rem; max-width:500px; margin:0 auto 2rem;">
+            We're looking for investors who share our vision of building world-class companies from the heart of the Silk Road.
+        </p>
+        <div class="reveal d4 divider" style="margin:0 auto 2rem;"></div>
+
+        <div class="reveal d5" style="display:flex; flex-direction:column; gap:0.75rem; align-items:center;">
+            <a href="mailto:david@creata.team" class="cta-email">david@creata.team</a>
+            <p class="text-sm text-muted">+7 776 532 99 77</p>
+            <p class="text-sm text-gray">www.creata.ventures</p>
+        </div>
+
+        <div class="reveal d6" style="margin-top:2.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <span class="badge badge-ghost" style="font-size:0.6rem;">AIFC, Astana, Kazakhstan</span>
+            <span class="badge badge-ghost" style="font-size:0.6rem;">Venture Studio License</span>
+            <span class="badge badge-ghost" style="font-size:0.6rem;">English Common Law</span>
+        </div>
+
+        <p class="reveal d7 text-xs text-gray" style="margin-top:3rem; text-transform:none; letter-spacing:0;">
+            Creata Ventures Studio Ltd &copy; 2026. Confidential. For intended recipients only.
+        </p>
+    </div>
+</section>
+
+
+<!-- ========================================
+   JAVASCRIPT — Navigation, Animations, Bars
+   ======================================== -->
+<script>
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   Handles: keyboard nav, scroll-triggered animations,
+   progress bar, nav dots, bar chart animations
+   =========================================== */
+class SlidePresentation {
+    constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.totalSlides = this.slides.length;
+        this.currentSlide = 0;
+        this.isScrolling = false;
+
+        this.initNavDots();
+        this.initObserver();
+        this.initKeyboard();
+        this.initBarCharts();
+        this.updateProgress();
+
+        document.getElementById('slideTotal').textContent = String(this.totalSlides).padStart(2, '0');
+    }
+
+    /* --- Navigation dots --- */
+    initNavDots() {
+        const nav = document.getElementById('navDots');
+        this.slides.forEach((slide, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('nav-dot');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}: ${slide.dataset.title || ''}`);
+            dot.addEventListener('click', () => this.goToSlide(i));
+            nav.appendChild(dot);
+        });
+        this.dots = nav.querySelectorAll('.nav-dot');
+    }
+
+    /* --- Intersection Observer: triggers .visible on slides --- */
+    initObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const index = Array.from(this.slides).indexOf(entry.target);
+                    this.currentSlide = index;
+                    this.updateProgress();
+                    this.updateDots();
+                    this.animateBars(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        this.slides.forEach(slide => observer.observe(slide));
+    }
+
+    /* --- Keyboard navigation --- */
+    initKeyboard() {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                this.goToSlide(Math.min(this.currentSlide + 1, this.totalSlides - 1));
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                this.goToSlide(Math.max(this.currentSlide - 1, 0));
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                this.goToSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                this.goToSlide(this.totalSlides - 1);
+            }
+        });
+    }
+
+    /* --- Go to specific slide --- */
+    goToSlide(index) {
+        this.slides[index].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* --- Update progress bar --- */
+    updateProgress() {
+        const pct = ((this.currentSlide + 1) / this.totalSlides) * 100;
+        document.getElementById('progressBar').style.width = pct + '%';
+        document.getElementById('slideNum').textContent = String(this.currentSlide + 1).padStart(2, '0');
+    }
+
+    /* --- Update active dot --- */
+    updateDots() {
+        this.dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === this.currentSlide);
+        });
+    }
+
+    /* --- Bar chart animations (slide 11) --- */
+    initBarCharts() {
+        this.barsFilled = false;
+    }
+
+    animateBars(slide) {
+        const bars = slide.querySelectorAll('.bar-fill[data-width]');
+        if (bars.length === 0) return;
+        bars.forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+        });
+    }
+}
+
+/* Initialize on DOM ready */
+document.addEventListener('DOMContentLoaded', () => {
+    new SlidePresentation();
+});
+</script>
+
+</body>
+</html>

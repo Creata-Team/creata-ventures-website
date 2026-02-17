@@ -25,25 +25,30 @@ Official website for **Creata Ventures** - an AIFC-registered Venture Studio foc
 | Portfolio | `/portfolio.html` | `/ru/portfolio.html` |
 | Apply | `/apply.html` | `/ru/apply.html` |
 | Contact | `/contact.html` | `/ru/contact.html` |
+| Success | `/success.html` | `/ru/success.html` |
 
-## Team (8 Members)
+## Team (7 Members)
 
 ### Core Team
 - **David Tuganov** - Managing Director
 - **Zarina Satubaldinam** - Portfolio Founder (NMT)
 - **Saida Tleulenova** - Finance & Operations
 
-### Advisory Board
+### Venture Partners
 - Sergey Makarov - Venture & Innovation Expert
-- Kendrick White - Tech Commercialization Expert
+- Kendrick White - VC Fund Management & University R&D Commercialization
 - Ekaterina Runova - IP & Tech Transfer Specialist
 - Abylay Akhymbekov - Technology Broker
-- Evgeny "Brooks" Evdokimov - Venture Capital Expert
 
-## Portfolio Companies
+## Portfolio Companies (7)
 
 1. **iWendy** - MBTI-based founder matching platform (Active Development)
 2. **NMT (NeuroMindTherapy)** - HealthTech platform with EEG monitoring (PMF)
+3. **Regain** - AI-powered health platform for chronic disease reversal (Pre-Seed)
+4. **OTA (Online Travel Apps)** - Tourism ecosystem platform (Active Development)
+5. **ALUMINICO** - Revolutionary hot aluminizing technology (Raising Seed)
+6. **Bota Marketplace** - Social commerce platform for Central Asia (Pre-Seed)
+7. **Yurta.Shop** - Creator marketplace & producer center (Pre-Seed)
 
 ## Tech Stack
 
@@ -144,7 +149,8 @@ Website/
 │   ├── team.html
 │   ├── portfolio.html
 │   ├── apply.html
-│   └── contact.html
+│   ├── contact.html
+│   └── success.html
 ├── netlify.toml        # Netlify configuration
 └── README.md           # This file
 ```
@@ -203,7 +209,7 @@ Replace map placeholder in `contact.html` and `ru/contact.html`:
 
 ## License
 
-Copyright 2025 Creata Ventures Studio Ltd. All rights reserved.
+Copyright 2025–2026 Creata Ventures Studio Ltd. All rights reserved.
 
 ---
 

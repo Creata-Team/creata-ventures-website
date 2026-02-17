@@ -55,6 +55,12 @@
 #   status = 302
 #   conditions = {Language = ["ru"]}
 
+# Presentation clean URL
+[[redirects]]
+  from = "/presentation"
+  to = "/presentation/index.html"
+  status = 200
+
 # 404 handling
 [[redirects]]
   from = "/*"
