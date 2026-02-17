@@ -61,6 +61,12 @@
   to = "/presentation/index.html"
   status = 200
 
+# Internal team presentation
+[[redirects]]
+  from = "/internal"
+  to = "/internal/index.html"
+  status = 200
+
 # 404 handling
 [[redirects]]
   from = "/*"
