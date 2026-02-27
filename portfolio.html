@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Creata Ventures portfolio - iWendy, NMT, Regain, OTA TravelTech, ALUMINICO, Bota Marketplace, and Yurta.Shop">
+  <meta name="description" content="Creata Ventures portfolio - iWendy, NMT, Regain, ALUMINICO, Lipsar Studio, and AGC Genomics">
   <title>Portfolio | Creata Ventures</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,8 +50,15 @@
   <section class="section">
     <div class="container">
 
+      <!-- Vertical Filter -->
+      <div class="vertical-filter">
+        <button class="filter-btn active" data-filter="all">All Companies</button>
+        <button class="filter-btn" data-filter="creative">Creative Industries</button>
+        <button class="filter-btn" data-filter="deeptech">DeepTech</button>
+      </div>
+
       <!-- iWendy -->
-      <div class="card portfolio-card">
+      <div class="card portfolio-card" data-vertical="deeptech">
         <div class="portfolio-image">🧠</div>
         <div>
           <span class="portfolio-badge development">Active Development</span>
@@ -96,7 +103,7 @@
       </div>
 
       <!-- NMT -->
-      <div class="card portfolio-card" style="margin-top: var(--space-12);">
+      <div class="card portfolio-card" data-vertical="deeptech" style="margin-top: var(--space-12);">
         <div class="portfolio-image">🔬</div>
         <div>
           <span class="portfolio-badge pmf">Product-Market Fit</span>
@@ -169,7 +176,7 @@
       </div>
 
       <!-- Regain -->
-      <div class="card portfolio-card" style="margin-top: var(--space-12);">
+      <div class="card portfolio-card" data-vertical="deeptech" style="margin-top: var(--space-12);">
         <div class="portfolio-image">🧬</div>
         <div>
           <span class="portfolio-badge fundraising">Raising Pre-Seed</span>
@@ -241,63 +248,8 @@
         </div>
       </div>
 
-      <!-- OTA -->
-      <div class="card portfolio-card" style="margin-top: var(--space-12);">
-        <div class="portfolio-image">✈️</div>
-        <div>
-          <span class="portfolio-badge development">Active Development</span>
-          <p class="portfolio-sector">TravelTech / B2B SaaS / Marketplace</p>
-          <h2>OTA (Online Travel Apps)</h2>
-          <p style="font-size: var(--text-lg); margin-bottom: var(--space-6);">
-            One-Tap Access to Book Services Based on Your Location. Making cities understandable for tourists — search, book, and use services in one place.
-          </p>
-
-          <h4 style="margin-bottom: var(--space-3);">The Problem</h4>
-          <p>
-            Tourists don't know where to buy. Businesses don't know who to sell to. There's no unified tool for trust and interaction. Tourism ecosystem is fragmented with no single platform connecting tourists, businesses, and city administration.
-          </p>
-
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Our Solution</h4>
-          <p>
-            Visit-Center (OTA) is a platform for managing the tourism ecosystem of a city:
-          </p>
-          <ul style="margin-top: var(--space-2); color: var(--color-gray-600);">
-            <li>Unified profiles for hotels, restaurants, guides, museums with reviews & ratings</li>
-            <li>Integrated booking & payment system with split-payments</li>
-            <li>White-label Visit-City solution for any city or region</li>
-            <li>B2B collaboration tools and analytics dashboard</li>
-          </ul>
-
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Traction</h4>
-          <div class="grid grid-4" style="margin-top: var(--space-4); gap: var(--space-4);">
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">20+</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">B2B Partners</div>
-            </div>
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">1,000+</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Users</div>
-            </div>
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$1B</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Market (CA)</div>
-            </div>
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">7%</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Commission</div>
-            </div>
-          </div>
-
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Founders</h4>
-          <p>
-            <strong>Yerkin Tikenov</strong> — 25+ years in tourism, founder of Sabre & Partners, Silk Road Trans Hub Tour pioneer<br>
-            <strong>Nikolay Zhdanov</strong> — 10+ years in digital products, logistics systems, hospitality management
-          </p>
-        </div>
-      </div>
-
       <!-- ALUMINICO -->
-      <div class="card portfolio-card" style="margin-top: var(--space-12);">
+      <div class="card portfolio-card" data-vertical="deeptech" style="margin-top: var(--space-12);">
         <div class="portfolio-image">🔩</div>
         <div>
           <span class="portfolio-badge fundraising">Raising Seed</span>
@@ -365,134 +317,144 @@
         </div>
       </div>
 
-      <!-- Bota Marketplace -->
-      <div class="card portfolio-card" style="margin-top: var(--space-12);">
-        <div class="portfolio-image">🛍️</div>
+      <!-- Lipsar Studio -->
+      <div class="card portfolio-card" data-vertical="creative" style="margin-top: var(--space-12);">
+        <div class="portfolio-image">🎮</div>
         <div>
-          <span class="portfolio-badge fundraising">Raising Pre-Seed</span>
-          <p class="portfolio-sector">E-commerce / Social Commerce / C2M</p>
-          <h2>Bota Marketplace</h2>
+          <span class="portfolio-badge fundraising">Raising Series A</span>
+          <p class="portfolio-sector">GameDev / Creative Industries / Entertainment</p>
+          <h2>Lipsar Studio</h2>
           <p style="font-size: var(--text-lg); margin-bottom: var(--space-6);">
-            Social Commerce Platform Where Every Influencer Becomes a Store. Connecting Chinese factories directly to Central Asian consumers through trusted creators.
+            Turn-based tactics gaming studio with 100+ shipped titles and $10M+ lifetime revenue. Licensed to develop games in the World of Darkness universe (Paradox Interactive).
           </p>
 
           <h4 style="margin-bottom: var(--space-3);">The Problem</h4>
           <p>
-            Central Asian e-commerce is booming ($7.3B in Kazakhstan alone), but existing platforms miss the social commerce revolution. Kaspi charges 15-20% commission. TikTok Shop isn't available. There's no social commerce platform for Central Asia.
+            The turn-based tactics genre is underserved by major publishers despite a loyal and growing audience. Most studios lack the proprietary technology and IP access needed to create premium experiences at scale.
           </p>
 
           <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Our Solution</h4>
           <p>
-            Bota Marketplace is a Social Managed Marketplace where influencers create personal storefronts:
+            Lipsar has built a proprietary game engine optimized for turn-based tactics, enabling rapid development and premium quality:
           </p>
           <ul style="margin-top: var(--space-2); color: var(--color-gray-600);">
-            <li>Every blogger becomes a store in 5 minutes</li>
-            <li>C2M supply chain: 175+ Chinese factories, 30-50% below market prices</li>
-            <li>Neo E-commerce Academy: train creators to sell</li>
-            <li>Platform handles logistics, payments, returns</li>
-          </ul>
-
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Market Opportunity</h4>
-          <div class="grid grid-4" style="margin-top: var(--space-4); gap: var(--space-4);">
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$7.3B</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">KZ E-commerce</div>
-            </div>
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">175+</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">CN Factories</div>
-            </div>
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">50M+</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">TikTok Reach</div>
-            </div>
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$220K</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Raising</div>
-            </div>
-          </div>
-
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Partners</h4>
-          <p>
-            <strong>CIAQ</strong> — Creative Industries Alliance (1,000+ creators)<br>
-            <strong>YOLO House / BIP House</strong> — 50M+ combined TikTok followers<br>
-            <strong>Chinese Partner</strong> — Supply chain, 175+ factories, logistics
-          </p>
-        </div>
-      </div>
-
-      <!-- Yurta.Shop -->
-      <div class="card portfolio-card" style="margin-top: var(--space-12);">
-        <div class="portfolio-image">🏠</div>
-        <div>
-          <span class="portfolio-badge fundraising">Raising Pre-Seed</span>
-          <p class="portfolio-sector">Marketplace / Creator Economy / E-commerce</p>
-          <h2>Yurta.Shop</h2>
-          <p style="font-size: var(--text-lg); margin-bottom: var(--space-6);">
-            Marketplace & Producer Center where every creator builds a brand. Connecting talented makers to local, regional, and international markets through full-cycle support.
-          </p>
-
-          <h4 style="margin-bottom: var(--space-3);">The Problem</h4>
-          <p>
-            Central Asian creators can't scale — they're stuck in Instagram DMs. No infrastructure for payments and logistics, no brand support leading to low margins, no market access beyond local demand, and no knowledge how to build a sustainable business. Only 12% of creators globally monetize successfully.
-          </p>
-
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Our Solution</h4>
-          <p>
-            Yurta.Shop is a Marketplace + Producer Center where creators go from idea to international sales:
-          </p>
-          <ul style="margin-top: var(--space-2); color: var(--color-gray-600);">
-            <li>Curated Marketplace — platform for unique, authentic products</li>
-            <li>Producer Center — full branding: photo, video, packaging, marketing</li>
-            <li>B2B Channel — wholesale access to retailers, HoReCa</li>
-            <li>Export Hub — logistics, documentation, localization</li>
+            <li>Proprietary engine with 10+ years of iterative improvement</li>
+            <li>World of Darkness license — Night Hunters flagship title</li>
+            <li>Pipeline of AAA IP partnerships (major tabletop and gaming franchises)</li>
+            <li>Cross-platform: PC (Steam), Mobile (iOS/Android), Console</li>
           </ul>
 
           <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Business Model</h4>
           <div class="grid grid-3" style="margin-top: var(--space-4); gap: var(--space-4);">
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
-              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Marketplace</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">12-18% commission on GMV</div>
-              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">Platform</div>
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Premium Games</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">$19.99–$29.99 Steam titles with DLC expansion packs</div>
+              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">B2C</div>
             </div>
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
-              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Producer Services</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">$200-2,000 per branding package</div>
-              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">Services</div>
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Mobile F2P</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Free-to-play with in-app purchases and season passes</div>
+              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">B2C</div>
             </div>
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
-              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Export Hub</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">% + fixed fee for international sales</div>
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">IP Licensing</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Revenue share from licensed franchise games</div>
               <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">B2B</div>
             </div>
           </div>
 
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Market Opportunity</h4>
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Traction</h4>
           <div class="grid grid-4" style="margin-top: var(--space-4); gap: var(--space-4);">
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$500M</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">TAM (CA)</div>
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">100+</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Games Shipped</div>
             </div>
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$5M</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">SOM (3yr)</div>
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$10M+</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Lifetime Revenue</div>
             </div>
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">23%</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">CAGR Creator Economy</div>
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">50M+</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Downloads</div>
             </div>
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$75K</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Raising</div>
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">29</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Team Members</div>
             </div>
           </div>
 
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Strategic Partners</h4>
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Founder</h4>
           <p>
-            <strong>Creata Ventures</strong> — Product, operations, venture studio experience<br>
-            <strong>CIAQ Network</strong> — Creative Industries Alliance (1,000+ creators access)<br>
-            <strong>Astana Hub / MOST</strong> — Startup ecosystem support
+            <strong>Gleb Durnovo</strong> — 15+ years in game development. Built and scaled a studio from scratch to 100+ titles and $10M+ revenue. Expert in turn-based tactics genre with deep industry connections.
           </p>
+        </div>
+      </div>
+
+      <!-- AGC Genomics -->
+      <div class="card portfolio-card" data-vertical="deeptech" style="margin-top: var(--space-12);">
+        <div class="portfolio-image">🧬</div>
+        <div>
+          <span class="portfolio-badge development">Due Diligence</span>
+          <p class="portfolio-sector">BioTech / HealthTech / Genomics</p>
+          <h2>AGC Genomics</h2>
+          <p style="font-size: var(--text-lg); margin-bottom: var(--space-6);">
+            Kazakhstan's first local next-generation sequencing (NGS) genetic testing platform. Bringing affordable, accessible genomic diagnostics to a 20M+ population with less than 1% market penetration.
+          </p>
+
+          <h4 style="margin-bottom: var(--space-3);">The Problem</h4>
+          <p>
+            Kazakhstan lacks local NGS genetic testing infrastructure. All samples are sent abroad — increasing costs ($600–$2,500 per test), turnaround time (4–6 weeks), and creating data sovereignty risks. Less than 1% of the population has access to genetic diagnostics.
+          </p>
+
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Our Solution</h4>
+          <p>
+            AGC Genomics establishes a full-cycle local NGS laboratory with international technology partnerships:
+          </p>
+          <ul style="margin-top: var(--space-2); color: var(--color-gray-600);">
+            <li>4 product lines: Prenatal screening (NIPT), whole exome sequencing (WES), colorectal cancer screening (COLOTECT), preimplantation genetic testing (PGT-A)</li>
+            <li>30–50% cost reduction vs. sending samples abroad</li>
+            <li>Turnaround time: 5–10 business days (vs. 4–6 weeks)</li>
+            <li>Local data processing compliant with Kazakhstan regulations</li>
+          </ul>
+
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Market Opportunity</h4>
+          <div class="grid grid-3" style="margin-top: var(--space-4); gap: var(--space-4);">
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">NIPT</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">400K pregnancies/year, non-invasive prenatal screening</div>
+              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">$50M+ TAM</div>
+            </div>
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Oncology</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Early detection colorectal cancer screening</div>
+              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">COLOTECT</div>
+            </div>
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Rare Diseases</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Whole exome sequencing for genetic disorders</div>
+              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">WES</div>
+            </div>
+          </div>
+
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Traction</h4>
+          <div class="grid grid-4" style="margin-top: var(--space-4); gap: var(--space-4);">
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">20M+</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Population</div>
+            </div>
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">&lt;1%</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Penetration</div>
+            </div>
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">4</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Product Lines</div>
+            </div>
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">JV</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Partnership</div>
+            </div>
+          </div>
         </div>
       </div>
 

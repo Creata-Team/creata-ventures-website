@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   initScrollAnimations();
   initFormValidation();
+  initPortfolioFilter();
 });
 
 /**
@@ -254,6 +255,44 @@ function initFormValidation() {
     }
   `;
   document.head.appendChild(style);
+}
+
+/**
+ * Portfolio Vertical Filter
+ */
+function initPortfolioFilter() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.portfolio-card[data-vertical]');
+
+  if (!filterBtns.length || !cards.length) return;
+
+  // Handle hash-based initial filter
+  const hash = window.location.hash.replace('#', '');
+  if (hash === 'creative' || hash === 'deeptech') {
+    applyFilter(hash, filterBtns, cards);
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const filter = this.dataset.filter;
+      applyFilter(filter, filterBtns, cards);
+    });
+  });
+}
+
+function applyFilter(filter, btns, cards) {
+  btns.forEach(b => b.classList.remove('active'));
+  const activeBtn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+  if (activeBtn) activeBtn.classList.add('active');
+
+  cards.forEach(card => {
+    if (filter === 'all' || card.dataset.vertical === filter) {
+      card.classList.remove('hidden-filter');
+      card.style.display = '';
+    } else {
+      card.classList.add('hidden-filter');
+    }
+  });
 }
 
 /**
