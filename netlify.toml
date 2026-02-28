@@ -61,6 +61,12 @@
   to = "/presentation/index.html"
   status = 200
 
+# Muzzz pitch deck
+[[redirects]]
+  from = "/muzzz"
+  to = "/muzzz/index.html"
+  status = 200
+
 # Internal team presentation
 [[redirects]]
   from = "/internal"
