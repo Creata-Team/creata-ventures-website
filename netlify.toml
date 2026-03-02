@@ -67,6 +67,12 @@
   to = "/muzzz/index.html"
   status = 200
 
+# MuzzzApp research report
+[[redirects]]
+  from = "/muzzzapp"
+  to = "/muzzzapp/index.html"
+  status = 200
+
 # Internal team presentation
 [[redirects]]
   from = "/internal"
