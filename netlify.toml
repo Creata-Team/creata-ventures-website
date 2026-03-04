@@ -1,6 +1,6 @@
 # Netlify Configuration for Creata Ventures Website
 # https://docs.netlify.com/configure-builds/file-based-configuration/
-# Auto-deploy: GitHub App (installation_id: 113928785) → Netlify build
+# Auto-deploy: GitHub webhook → Netlify build hook
 
 [build]
   # Directory to publish (relative to root)
