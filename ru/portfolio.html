@@ -122,65 +122,81 @@
 
       <!-- Regain -->
       <div class="card portfolio-card" style="margin-top: var(--space-12);">
-          <span class="portfolio-badge fundraising">Pre-Seed раунд</span>
-          <p class="portfolio-sector">HealthTech / AI / Lifestyle Medicine</p>
+          <span class="portfolio-badge fundraising">Seed раунд</span>
+          <p class="portfolio-sector">HealthTech / Clinical AI / Агентная архитектура</p>
           <h2><span class="portfolio-emoji">🧬</span>Regain</h2>
           <p style="font-size: var(--text-lg); margin-bottom: var(--space-6);">
-            AI-платформа для управления здоровьем, трансформирующая рутинные лабораторные анализы в персонализированные протоколы образа жизни для реверсии хронических заболеваний. Клиническое исследование с Yale University запланировано на 2026 год. <a href="https://regain.ai" target="_blank" style="color: var(--color-accent);">regain.ai →</a>
+            Платформа клинического ИИ с автономными агентами для дифференциальной диагностики и оптимизации лечения. Подана заявка на программу ARPA-H ADVOCATE ($20M грантов). Hermes Protocol выпущен как открытый стандарт. <a href="https://regain.ai" target="_blank" style="color: var(--color-accent);">regain.ai →</a>
           </p>
 
           <h4 style="margin-bottom: var(--space-3);">Проблема</h4>
           <p>
-            1 из 3 взрослых имеет хотя бы одно хроническое заболевание. При этом только 0.3% врачей сертифицированы в области lifestyle-медицины. Лабораторные анализы вызывают путаницу, рекомендации по образу жизни статичны и не персонализированы, а 13 млрд анализов ежегодно остаются немонетизированными.
+            Клиническое принятие решений фрагментировано, подвержено ошибкам и не масштабируется. ИТ-системы больниц (ЛИС, CRM, BI) не интегрированы друг с другом. ИИ в медицине лишён регуляторного одобрения и детерминированной безопасности. Путь через FDA настолько сложен, что его проходят только техгиганты — это создаёт возможность для фокусированных стартапов.
           </p>
 
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Наше решение</h4>
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Технология: агентная клиническая архитектура</h4>
           <p>
-            Regain получает данные анализов пациента и создаёт персонализированные отчёты с протоколами:
+            Мультиагентная система, имитирующая клинический консилиум — без собственных нейросетей, но с уникальным слоем оркестрации:
           </p>
-          <ul style="margin-top: var(--space-2); color: var(--color-gray-600);">
-            <li>AI интерпретирует каждый биомаркер в практические рекомендации</li>
-            <li>Персонализированные рекомендации по питанию, сну и физической активности</li>
-            <li>RL-Loop Engine непрерывно улучшает протоколы на основе новых данных</li>
-            <li>Контекстный маркетплейс связывает пациентов со специалистами и добавками</li>
-          </ul>
-
-          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Бизнес-модель</h4>
-          <div class="grid grid-3" style="margin-top: var(--space-4); gap: var(--space-4);">
+          <div class="grid grid-2" style="margin-top: var(--space-4); gap: var(--space-4);">
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
-              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Лабораторные отчёты</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">$7/отчёт SaaS-модель, оплачивается лабораториями</div>
-              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">B2B</div>
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">DEUTSCH (TA1) — Клинический агент</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Трёхагентное рассуждение через ArgMed-дебаты: Generator → Verifier → Reasoner. 68 виньеток, 6 слоёв скоринга, 8 кардиоваскулярных состояний. 4,000+ пациентов в продакшене.</div>
             </div>
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
-              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Маркетплейс</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">10% комиссия с последующих услуг</div>
-              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">Платформа</div>
-            </div>
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
-              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">White-Label</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Лицензирование МИС медицинским учреждениям</div>
-              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">Enterprise</div>
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">POPPER (TA2) — Супервайзер безопасности</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Детерминированный 7-этапный конвейер. 47мс медиана отклика. Нулевое использование LLM в критическом контуре. Может одобрить, остановить или эскалировать врачу.</div>
             </div>
           </div>
+          <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); margin-top: var(--space-4);">
+            <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Hermes Protocol (Open Source)</div>
+            <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Открытый стандарт коммуникации (Apache 2.0), позволяющий любому TA1 работать с любым TA2. Структурно обеспечивает эпистемические метаданные. Выпущен 5 февраля 2026. Цель: стать отраслевым стандартом безопасности клинического ИИ.</div>
+          </div>
+
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Продукты</h4>
+          <div class="grid grid-3" style="margin-top: var(--space-4); gap: var(--space-4);">
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Мобильное приложение</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">«The Everything Health App» — wearables, лабораторные данные, телемедицина, встроенная клиника</div>
+              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">B2C</div>
+            </div>
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Медицинская ОС (МИС)</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Сверхинтегрированная клиническая система, заменяющая фрагментированные ЛИС+CRM+BI</div>
+              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">B2B Enterprise</div>
+            </div>
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius);">
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-2);">Agent API</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-600);">Модульные клинические агенты (TA1+TA2), подключаемые к любой системе через API</div>
+              <div style="font-weight: 600; margin-top: var(--space-2); color: var(--color-accent);">Платформа</div>
+            </div>
+          </div>
+
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Регуляторика и партнёрства</h4>
+          <ul style="margin-top: var(--space-2); color: var(--color-gray-600);">
+            <li><strong>ARPA-H ADVOCATE:</strong> Подана заявка на $20M на два гранта (клинический + супервайзерный агент). Дедлайн 1 апреля 2026</li>
+            <li><strong>FDA Tempo:</strong> Заявка на программу пре-сертификации в процессе</li>
+            <li><strong>UI Health (Чикаго):</strong> LOI подписан, Dr. Mladen Vidovich (FACC, FSCAI) как PI, Epic EHR, IRB-ready</li>
+            <li><strong>Адвайзер из панели FDA:</strong> Кардиолог — член панели FDA в консультативном совете</li>
+          </ul>
 
           <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Трекшн</h4>
           <div class="grid grid-4" style="margin-top: var(--space-4); gap: var(--space-4);">
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$30K</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">ARR</div>
-            </div>
-            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">3,000+</div>
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">4,000+</div>
               <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Пациентов</div>
             </div>
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$650K</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Гранты</div>
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">47мс</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Safety Response</div>
             </div>
             <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
-              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">Yale</div>
-              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">RCT 2026</div>
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">$20M</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Заявка ARPA-H</div>
+            </div>
+            <div style="background: var(--color-light); padding: var(--space-4); border-radius: var(--radius); text-align: center;">
+              <div style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">UI Health</div>
+              <div style="font-size: var(--text-sm); color: var(--color-gray-500);">Клинический партнёр</div>
             </div>
           </div>
 
