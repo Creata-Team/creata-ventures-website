@@ -4,9 +4,11 @@
 [build]
   # Directory to publish (relative to root)
   publish = "."
+  # Install dependencies for serverless functions
+  command = "npm install"
 
-  # Build command (not needed for static site)
-  # command = ""
+[functions]
+  directory = "netlify/functions"
 
 # Redirects and headers
 [[headers]]

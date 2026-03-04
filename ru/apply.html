@@ -74,7 +74,7 @@
       </div>
 
       <!-- Form -->
-      <form name="founder-application-ru" method="POST" action="/ru/success.html" data-netlify="true" netlify-honeypot="bot-field">
+      <form name="founder-application-ru" method="POST" action="/ru/success.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
         <input type="hidden" name="form-name" value="founder-application-ru">
 
         <!-- Honeypot -->
@@ -208,6 +208,11 @@
             <label class="form-label" for="deck">URL презентации</label>
             <input type="url" id="deck" name="deck" class="form-input" placeholder="https://docs.google.com/...">
           </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pitch-deck-file">Загрузить презентацию (PDF, макс. 10 МБ)</label>
+          <input type="file" id="pitch-deck-file" name="pitch-deck-file" class="form-input" accept=".pdf,.pptx,.ppt" style="padding: var(--space-3);">
         </div>
 
         <div class="form-group">

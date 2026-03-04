@@ -1,0 +1,8 @@
+{
+  "name": "creata-ventures-website",
+  "private": true,
+  "description": "Creata Ventures Studio website with Netlify Forms + Functions",
+  "dependencies": {
+    "nodemailer": "^6.9.0"
+  }
+}
