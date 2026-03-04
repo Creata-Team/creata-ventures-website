@@ -76,6 +76,18 @@
   to = "/muzzzapp/index.html"
   status = 200
 
+# iWendy pitch deck (EN)
+[[redirects]]
+  from = "/iwendy"
+  to = "/iwendy/index.html"
+  status = 200
+
+# iWendy pitch deck (RU)
+[[redirects]]
+  from = "/iwendy/ru"
+  to = "/iwendy/ru/index.html"
+  status = 200
+
 # Internal team presentation
 [[redirects]]
   from = "/internal"

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iWendy 2.0 — AI-платформа интеллектуального анализа личности</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #0a0a0a;
+            --dark-card: #141414;
+            --primary: #23f5af;
+            --accent: #f97316;
+            --light: #fafafa;
+            --text: #d1d1d1;
+            --muted: #86868b;
+            --white: #ffffff;
+            --border: rgba(255,255,255,0.1);
+            --glow-primary: rgba(35, 245, 175, 0.15);
+            --glow-accent: rgba(249, 115, 22, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            width: 100%; height: 100%;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .deck {
+            width: 100vw; height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 100px;
+            background: linear-gradient(145deg, #0a0a0a 0%, #111 40%, #141414 100%);
+            overflow: hidden;
+        }
+
+        .slide.active { display: flex; }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse 600px 400px at 15% 40%, var(--glow-primary), transparent),
+                radial-gradient(ellipse 500px 350px at 85% 75%, var(--glow-accent), transparent);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide > * { position: relative; z-index: 1; }
+
+        .slide.left { align-items: flex-start; }
+        .slide.left * { text-align: left; }
+
+        /* ── Typography ── */
+        .logo {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 56px; font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 64px; font-weight: 800; line-height: 1.08;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 28px;
+            max-width: 1100px;
+        }
+
+        h2 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 42px; font-weight: 700; line-height: 1.15;
+            color: var(--light);
+            margin-bottom: 32px;
+        }
+
+        h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 24px; font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 18px;
+        }
+
+        p { font-size: 20px; line-height: 1.65; color: var(--text); margin-bottom: 14px; }
+
+        .section-label {
+            font-size: 13px; font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 22px;
+        }
+
+        .accent  { color: var(--primary); font-weight: 700; }
+        .orange  { color: var(--accent);  font-weight: 700; }
+        .muted   { color: var(--muted); }
+        .bold    { font-weight: 700; color: var(--light); }
+
+        /* ── Lists ── */
+        ul { list-style: none; margin: 16px 0; }
+        li {
+            position: relative; padding-left: 28px;
+            font-size: 20px; line-height: 1.65; color: var(--text);
+            margin-bottom: 12px;
+        }
+        li::before {
+            content: '→'; position: absolute; left: 0;
+            color: var(--primary); font-weight: 700;
+        }
+
+        /* ── Stats ── */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            width: 100%;
+            margin: 36px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 32px 24px;
+            background: rgba(35, 245, 175, 0.04);
+            border: 1px solid rgba(35, 245, 175, 0.18);
+            border-radius: 16px;
+            transition: border-color .3s;
+        }
+        .stat:hover { border-color: rgba(35, 245, 175, 0.4); }
+
+        .stat-value {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 44px; font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 13px; font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+
+        .stat-desc {
+            font-size: 14px; color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* ── Grid / Cards ── */
+        .grid-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            width: 100%;
+            margin: 28px 0;
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.65);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px 30px;
+            backdrop-filter: blur(8px);
+            transition: border-color .3s, transform .3s;
+        }
+        .card:hover { border-color: rgba(35, 245, 175, 0.25); transform: translateY(-2px); }
+
+        .card-title {
+            font-size: 18px; font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .card-text { font-size: 16px; line-height: 1.6; color: var(--text); }
+        .card-text p { font-size: 16px; margin-bottom: 8px; }
+
+        .card-footer {
+            margin-top: 14px; font-size: 14px;
+            color: var(--muted); font-weight: 600;
+        }
+
+        /* ── Stacked cards ── */
+        .stack { display: flex; flex-direction: column; gap: 18px; width: 100%; margin-top: 28px; }
+
+        /* ── Info box ── */
+        .info-box {
+            padding: 28px 36px;
+            border-radius: 14px;
+            margin-top: 36px;
+            width: 100%;
+        }
+        .info-box.green  { background: rgba(35,245,175,0.06); border: 1px solid rgba(35,245,175,0.2); }
+        .info-box.orange { background: rgba(249,115,22,0.06); border: 1px solid rgba(249,115,22,0.2); }
+        .info-box.accent { background: rgba(35,245,175,0.1);  border: 2px solid rgba(35,245,175,0.3); }
+
+        .info-box p { font-size: 19px; margin-bottom: 0; }
+
+        /* ── Language switcher ── */
+        .lang-switch {
+            position: fixed; top: 24px; left: 24px;
+            display: flex; gap: 6px; z-index: 100;
+        }
+        .lang-btn {
+            padding: 6px 14px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .25s;
+            font-family: 'Manrope', sans-serif;
+        }
+        .lang-btn.active {
+            background: rgba(35,245,175,0.15);
+            border: 1px solid rgba(35,245,175,0.4);
+            color: var(--primary);
+        }
+        .lang-btn:not(.active) {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--muted);
+        }
+        .lang-btn:not(.active):hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.2);
+            color: var(--light);
+        }
+
+        /* ── Controls ── */
+        .controls {
+            position: fixed; bottom: 28px; right: 28px;
+            display: flex; gap: 12px; z-index: 100;
+        }
+
+        .btn {
+            width: 48px; height: 48px;
+            background: rgba(35,245,175,0.08);
+            border: 1px solid rgba(35,245,175,0.25);
+            color: var(--primary);
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .25s;
+            -webkit-user-select: none; user-select: none;
+        }
+        .btn:hover { background: rgba(35,245,175,0.18); border-color: rgba(35,245,175,0.5); }
+
+        .counter {
+            position: fixed; bottom: 32px; left: 32px;
+            font-size: 15px; color: var(--muted);
+            z-index: 100; font-variant-numeric: tabular-nums;
+        }
+
+        /* ── Progress bar ── */
+        .progress {
+            position: fixed; top: 0; left: 0;
+            height: 3px; background: var(--primary);
+            z-index: 200; transition: width .35s ease;
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .slide.active > * {
+            animation: fadeUp .6s cubic-bezier(.22,1,.36,1) both;
+        }
+        .slide.active > *:nth-child(2) { animation-delay: .08s; }
+        .slide.active > *:nth-child(3) { animation-delay: .16s; }
+        .slide.active > *:nth-child(4) { animation-delay: .24s; }
+        .slide.active > *:nth-child(5) { animation-delay: .32s; }
+        .slide.active > *:nth-child(6) { animation-delay: .40s; }
+
+        /* ── Print / PDF ── */
+        @media print {
+            .controls, .counter, .progress, .lang-switch { display: none !important; }
+            .slide { page-break-after: always; box-shadow: none; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+    <!-- ════════ СЛАЙД 1: ТИТУЛЬНЫЙ ════════ -->
+    <div class="slide active">
+        <div class="logo">iWendy</div>
+        <h1>AI-платформа интеллектуального анализа личности</h1>
+        <p style="font-size: 26px; margin-top: 20px; max-width: 900px; text-align: center;">
+            Психометрика + Нейротехнологии + AI + GameDev =<br>
+            <span class="accent">HR Tech</span> ·
+            <span class="orange">NeuroWellBeing</span> ·
+            <span class="accent">GameDev</span>
+        </p>
+        <p style="margin-top: 56px; font-size: 17px; color: var(--muted); text-align: center;">
+            100% Creata Ventures&nbsp;&nbsp;·&nbsp;&nbsp;Seed $300–500K&nbsp;&nbsp;·&nbsp;&nbsp;Astana Hub&nbsp;&nbsp;·&nbsp;&nbsp;Первые в СНГ
+        </p>
+    </div>
+
+    <!-- ════════ СЛАЙД 2: ПРОБЛЕМА ════════ -->
+    <div class="slide left">
+        <div class="section-label">Проблема</div>
+        <h2>Оценка личности — неэффективна</h2>
+
+        <div style="margin-top: 16px;">
+            <h3>B2B: Компании не умеют нанимать</h3>
+            <ul>
+                <li><span class="bold">46%</span> новых сотрудников не проходят испытательный срок (SHRM)</li>
+                <li>Стоимость ошибки найма = <span class="bold">6–9 месячных</span> зарплат</li>
+                <li>Тесты медленные (30–60 мин), дорогие ($30–50), <span class="bold">без русского языка</span></li>
+                <li><span class="bold">Ноль</span> AI-инструментов оценки личности на русском</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 32px;">
+            <h3>B2C: Нет непрерывной аналитики</h3>
+            <ul>
+                <li>Тесты уровня BuzzFeed — без научной базы</li>
+                <li>Нет AI-карьерного навигатора для 300М+ русскоязычных</li>
+                <li>Дейтинг-приложения игнорируют психологическую совместимость</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ════════ СЛАЙД 3: РЫНОК ════════ -->
+    <div class="slide">
+        <div class="section-label">Рыночная возможность</div>
+        <h2>$30B+ глобальный рынок, ноль конкурентов в СНГ</h2>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">$30B</div>
+                <div class="stat-label">TAM (2033)</div>
+                <div class="stat-desc">Рынок психометрического<br>тестирования, CAGR 12.3%</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$2.5B</div>
+                <div class="stat-label">SAM</div>
+                <div class="stat-desc">AI-оценка личности<br>B2B + B2C + GameDev</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Конкурентов в СНГ</div>
+                <div class="stat-desc">Преимущество первого игрока<br>300М+ русскоязычных</div>
+            </div>
+        </div>
+
+        <div class="info-box green">
+            <p style="text-align:center;">
+                Arctic Shores + Crystal Knows + Humantic AI = <span class="bold">только английский</span>.
+                iWendy: <span class="accent">нативный русский</span> + научная строгость + GameDev интеграция
+            </p>
+        </div>
+    </div>
+
+    <!-- ════════ СЛАЙД 4: РЕШЕНИЕ ════════ -->
+    <div class="slide">
+        <div class="section-label">Решение</div>
+        <h2>Четыре продуктовых линии, один движок</h2>
+
+        <div class="grid-2x2">
+            <div class="card">
+                <div class="card-title">B2B SaaS — HR Tech</div>
+                <div class="card-text">
+                    <p><span class="bold">Hire IQ</span> — AI-скрининг за 5 минут</p>
+                    <p><span class="bold">Team DNA</span> — карта совместимости команды</p>
+                    <p><span class="bold">Culture Fit</span> — соответствие кандидат ↔ команда</p>
+                </div>
+                <div class="card-footer">$5–2,000 / мес на клиента</div>
+            </div>
+            <div class="card">
+                <div class="card-title">NeuroWell — НейроТех</div>
+                <div class="card-text">
+                    <p><span class="bold">НейроПрофиль</span> — ЭЭГ + психометрика = двойная валидация</p>
+                    <p><span class="bold">СтрессКарта</span> — профилактика выгорания (ЭЭГ)</p>
+                    <p><span class="bold">НейроПсихолог</span> — AI-саморегуляция (КПТ/Гештальт)</p>
+                </div>
+                <div class="card-footer">$1K–15K / корпоративная программа</div>
+            </div>
+            <div class="card">
+                <div class="card-title">B2C Мобильное приложение</div>
+                <div class="card-text">
+                    <p><span class="bold">Паспорт Личности</span> — AI-профиль из текста + поведения</p>
+                    <p><span class="bold">Карьерный Навигатор</span> — 2 127 профессий с маппингом</p>
+                    <p><span class="bold">Match Engine</span> — романтическая + командная совместимость</p>
+                </div>
+                <div class="card-footer">$4.99–14.99 / мес премиум</div>
+            </div>
+            <div class="card">
+                <div class="card-title">GameDev SDK</div>
+                <div class="card-text">
+                    <p><span class="bold">NPC Persona Engine</span> — психологически глубокие AI-персонажи</p>
+                    <p><span class="bold">Player Profiling</span> — анализ поведения без опросников</p>
+                    <p><span class="bold">Game-Based Assessment</span> — Arctic Shores для СНГ</p>
+                </div>
+                <div class="card-footer">$5K–100K за игровой проект</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════ СЛАЙД 5: КОНКУРЕНТНЫЙ МОАТ ════════ -->
+    <div class="slide left">
+        <div class="section-label">Почему мы</div>
+        <h2>6 слоёв конкурентного моата</h2>
+
+        <div class="grid-2x2">
+            <div class="card" style="border-left: 3px solid var(--primary);">
+                <div class="card-text">
+                    <span class="accent" style="font-size: 16px;">1. Научная строгость</span>
+                    <p style="font-size: 15px;">psycho-core: 75 IRT-вопросов, надёжность 0.9+ — <span class="bold">единственный валидированный AI-движок в СНГ</span></p>
+                </div>
+            </div>
+            <div class="card" style="border-left: 3px solid var(--accent);">
+                <div class="card-text">
+                    <span class="orange" style="font-size: 16px;">2. НейроТех валидация</span>
+                    <p style="font-size: 15px;">ЭЭГ-нейрофидбек — <span class="bold">объективный слой данных</span>. Никто в СНГ не комбинирует психометрику + нейроданные</p>
+                </div>
+            </div>
+            <div class="card" style="border-left: 3px solid var(--primary);">
+                <div class="card-text">
+                    <span class="accent" style="font-size: 16px;">3. Языковой барьер = моат</span>
+                    <p style="font-size: 15px;">Нативный русский + казахский + узбекский. SHL, Crystal Knows — <span class="bold">без глубокой локализации</span></p>
+                </div>
+            </div>
+            <div class="card" style="border-left: 3px solid var(--primary);">
+                <div class="card-text">
+                    <span class="accent" style="font-size: 16px;">4. GameDev интеграция</span>
+                    <p style="font-size: 15px;"><span class="bold">Единственная платформа</span>, объединяющая NPC Persona + Player Profiling + Game-Based Assessment</p>
+                </div>
+            </div>
+            <div class="card" style="border-left: 3px solid var(--primary);">
+                <div class="card-text">
+                    <span class="accent" style="font-size: 16px;">5. Сетевой эффект данных</span>
+                    <p style="font-size: 15px;">Больше пользователей → лучше IRT-калибровка → точнее тесты → <span class="bold">ещё больше пользователей</span></p>
+                </div>
+            </div>
+            <div class="card" style="border-left: 3px solid var(--primary);">
+                <div class="card-text">
+                    <span class="accent" style="font-size: 16px;">6. Синергия портфеля</span>
+                    <p style="font-size: 15px;">Lipsar + CorePunk + NMT + CIAQ (100+ компаний) = <span class="bold">встроенные пилоты</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════ СЛАЙД 6: ТРЕКШН ════════ -->
+    <div class="slide left">
+        <div class="section-label">Трекшн и активы</div>
+        <h2>Фундамент уже построен</h2>
+
+        <div class="stack">
+            <div class="card">
+                <div class="card-title">Библиотека psycho-core — ГОТОВА</div>
+                <div class="card-text">
+                    <p>75 IRT-калиброванных MBTI-вопросов, 16 профилей личности (17 секций каждый), 2 127 маппингов профессий, движки совместимости, 4 альтернативных системы. Python SDK + TypeScript SDK. <span class="accent">Продакшн-уровень, протестировано.</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Синергия портфеля — ГОТОВЫЕ ПИЛОТЫ</div>
+                <div class="card-text">
+                    <p><span class="bold">Lipsar Studio</span> — первый клиент GameDev SDK (World of Darkness, 40+ человек).</p>
+                    <p><span class="bold">Otrar Travel</span> — 13 сотрудников уже MBTI-профилированы (пилот Team DNA).</p>
+                    <p><span class="bold">CIAQ</span> — 100+ креативных компаний (B2B-пайплайн).</p>
+                    <p><span class="bold">TransforNATION</span> — 6 000+ выпускников (база B2C-пользователей).</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">NMT NeuroMindTherapy — ЗАПАТЕНТОВАНО</div>
+                <div class="card-text">
+                    <p>Запатентованная методика ЭЭГ-нейрофидбека. Цифровые протоколы саморегуляции (КПТ + Гештальт). Клинически верифицированная база. <span class="accent">НейроТех-слой ГОТОВ.</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">AI-инфраструктура — В ПРОДАКШНЕ</div>
+                <div class="card-text">
+                    <p>19 AI-сервисов в продакшне. GPU-сервер (RTX 2070 SUPER). ChromaDB RAG (80К документов). Пайплайн LLM-инференса. <span class="accent">Готово к развёртыванию iWendy.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════ СЛАЙД 7: ФИНАНСЫ ════════ -->
+    <div class="slide">
+        <div class="section-label">Путь к прибыльности</div>
+        <h2>Точка безубыточности — месяц 14</h2>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-label">Год 1</div>
+                <div class="stat-value" style="font-size: 36px;">$160K</div>
+                <div class="stat-desc">Пилотная фаза<br>10+ B2B-клиентов, 10K B2C</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Год 2</div>
+                <div class="stat-value" style="font-size: 36px;">$1.18M</div>
+                <div class="stat-desc">Прибыльность<br>50+ B2B, 50K B2C, SDK + NeuroWell</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Год 3</div>
+                <div class="stat-value" style="font-size: 36px; color: var(--accent);">$4.3M</div>
+                <div class="stat-desc">Региональная экспансия<br>3 страны, 4 продуктовых линии</div>
+            </div>
+        </div>
+
+        <div class="info-box green">
+            <p style="text-align: center;">
+                <span class="bold">Валовая маржа:</span> <span class="accent">85%+ SaaS</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="accent">75%+ NeuroWell</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="accent">90%+ GameDev</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <span class="bold">Безубыточность:</span> месяц 14
+            </p>
+        </div>
+    </div>
+
+    <!-- ════════ СЛАЙД 8: ASTANA HUB ════════ -->
+    <div class="slide left">
+        <div class="section-label">Выход на рынок</div>
+        <h2>Astana Hub: 0% налогов + $177M экосистема</h2>
+
+        <ul style="margin-top: 16px;">
+            <li><span class="accent">0% КПН, 0% НДС</span> — экономия ~$500K к Году 3</li>
+            <li><span class="accent">Акселератор AI'preneurs</span> — AI-программа + грант QazInnovations ($42K)</li>
+            <li><span class="accent">1 600+ IT-резидентов</span> — работающая экосистема, партнёрство с Google for Startups</li>
+            <li><span class="accent">$177M инвестиций</span> в 2024 — подтверждённый доступ к капиталу</li>
+        </ul>
+
+        <div class="info-box orange" style="margin-top: 36px;">
+            <p style="font-weight: 700;">
+                Месяц 1–2: Заявка → Месяц 3–5: Акселератор + MVP → Месяц 6: Demo Day + Seed-раунд
+            </p>
+        </div>
+
+        <div style="margin-top: 36px;">
+            <h3 style="font-size: 22px;">Путь географической экспансии</h3>
+            <ul>
+                <li><span class="bold">Год 1:</span> Казахстан (Астана + Алматы) — пилоты и product-market fit</li>
+                <li><span class="bold">Год 2:</span> Узбекистан (через MUNIS + IT Park) + Онлайн СНГ</li>
+                <li><span class="bold">Год 3:</span> Кыргызстан, Таджикистан + глобальная дистрибуция GameDev SDK</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ════════ СЛАЙД 9: КОМАНДА ════════ -->
+    <div class="slide">
+        <div class="section-label">Команда основателей</div>
+        <h2>Уникальный Founder-Market Fit</h2>
+
+        <div class="grid-2x2">
+            <div class="card">
+                <div class="card-title">Зарина Сатубалдина — CEO</div>
+                <div class="card-text">
+                    <p><span class="bold">Магистр психологии</span>, нейрофизиолог</p>
+                    <p>Автор запатентованной методики <span class="accent">NeuroMindTherapy</span>, объединяющей ЭЭГ-нейрофидбек, КПТ и гештальт-подход</p>
+                    <p>Эксперт в области бизнес-психологии для IT-команд и стартапов: стресс-устойчивость, когнитивная эффективность и качество принятия решений</p>
+                    <p>Практический опыт — нейротерапия с психотерапевтическими методами</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Давид Туганов — Основатель / CPO</div>
+                <div class="card-text">
+                    <p><span class="bold">16+ лет</span> в корпоративной трансформации</p>
+                    <p>Автор библиотеки <span class="accent">psycho-core</span> (IRT + MBTI)</p>
+                    <p>Президент CIAQ — 100+ креативных компаний</p>
+                    <p>Основатель TransforNATION — 6 000+ выпускников</p>
+                    <p>AI-native: 19 AI-сервисов в продакшне</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Совет консультантов</div>
+                <div class="card-text">
+                    <p><span class="bold">Сергей Макаров</span> — Венчурная стратегия, Всемирный банк, 20+ лет</p>
+                    <p><span class="bold">Кендрик Уайт</span> — Коммерциализация технологий, MBA Kellogg</p>
+                    <p><span class="bold">Саида Тлеуленова</span> — Финансы и M&amp;A, ex-Самрук-Казына</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">100% Creata Ventures</div>
+                <div class="card-text">
+                    <p>Внутренний стартап <span class="accent">Creata Ventures Studio</span> (МФЦА)</p>
+                    <p>IP: psycho-core + NMT + платформа iWendy</p>
+                    <p>Модель венчурной студии: полная операционная поддержка</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="margin-top: 32px; font-size: 19px; text-align: center;">
+            Нанимаем: <span class="accent">CTO</span> (AI/ML) · <span class="accent">Full-stack разработчик</span> · <span class="accent">AI/ML инженер</span> · <span class="accent">UX/UI дизайнер</span>
+        </p>
+    </div>
+
+    <!-- ════════ СЛАЙД 10: ЗАПРОС ════════ -->
+    <div class="slide">
+        <div class="section-label">Запрос</div>
+        <h1 style="font-size: 88px;">$300–500K Seed</h1>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-label" style="margin-bottom: 12px;">Разработка продукта</div>
+                <div class="stat-value" style="font-size: 36px;">60%</div>
+                <div class="stat-desc">$200–300K<br>Команда + инфраструктура + AI-модели</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label" style="margin-bottom: 12px;">Выход на рынок</div>
+                <div class="stat-value" style="font-size: 36px;">20%</div>
+                <div class="stat-desc">$60–100K<br>Маркетинг + продажи + B2B-пилоты</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label" style="margin-bottom: 12px;">Операции</div>
+                <div class="stat-value" style="font-size: 36px;">20%</div>
+                <div class="stat-desc">$60–100K<br>Юридика + администрирование + резерв</div>
+            </div>
+        </div>
+
+        <div class="info-box accent" style="margin-top: 36px;">
+            <p style="font-size: 22px; text-align: center;">
+                <span class="bold">18+ месяцев runway</span>&nbsp;&nbsp;→&nbsp;&nbsp;Безубыточность на 14-й месяц&nbsp;&nbsp;→&nbsp;&nbsp;
+                <span class="accent">$4.3M ARR к Году 3</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- ════════ СЛАЙД 11: ЗАКРЫТИЕ ════════ -->
+    <div class="slide">
+        <h1 style="font-size: 60px; max-width: 1000px; text-align: center;">
+            Давайте вместе строить будущее персонального интеллекта и нейропотенциала
+        </h1>
+        <p style="font-size: 24px; margin-top: 24px; text-align: center; max-width: 800px;">
+            Первые в СНГ&nbsp;&nbsp;·&nbsp;&nbsp;Рынок $30B&nbsp;&nbsp;·&nbsp;&nbsp;Психометрика + НейроТех&nbsp;&nbsp;·&nbsp;&nbsp;AI + GameDev
+        </p>
+        <div style="margin-top: 80px; text-align: center;">
+            <p class="muted" style="font-size: 19px;">iWendy 2.0 — AI-платформа интеллектуального анализа личности | 100% Creata Ventures</p>
+            <p style="font-size: 18px; margin-top: 12px;">
+                <span class="accent">Зарина Сатубалдина</span> (CEO)&nbsp;&nbsp;·&nbsp;&nbsp;+7 701 789 28 97
+            </p>
+            <p style="font-size: 18px; margin-top: 6px;">
+                <span class="accent">Давид Туганов</span> (Основатель/CPO)&nbsp;&nbsp;·&nbsp;&nbsp;david@creata.team&nbsp;&nbsp;·&nbsp;&nbsp;+7 776 532 99 77
+            </p>
+            <p class="muted" style="font-size: 16px; margin-top: 20px;">www.creata.ventures&nbsp;&nbsp;·&nbsp;&nbsp;Астана, Казахстан&nbsp;&nbsp;·&nbsp;&nbsp;Creata Ventures Studio (МФЦА)</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- ── Язык ── -->
+<div class="lang-switch" id="lang-switch">
+    <a class="lang-btn" href="/iwendy/">EN</a>
+    <a class="lang-btn active" href="/iwendy/ru/">RU</a>
+</div>
+
+<!-- ── Навигация ── -->
+<div class="counter" id="counter">1 / 11</div>
+<div class="controls" id="controls">
+    <button class="btn" onclick="prev()" aria-label="Назад">&#8592;</button>
+    <button class="btn" onclick="next()" aria-label="Вперёд">&#8594;</button>
+</div>
+
+<script>
+    // ── Slide engine (vanilla JS, zero deps) ──
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('counter');
+    const progress = document.getElementById('progress');
+    const total = slides.length;
+    let current = 0;
+
+    function go(index) {
+        if (index < 0 || index >= total) return;
+        slides[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        counter.textContent = (current + 1) + ' / ' + total;
+        progress.style.width = ((current + 1) / total * 100) + '%';
+    }
+
+    function next() { go(current + 1); }
+    function prev() { go(current - 1); }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight' || e.key === ' ')  { e.preventDefault(); next(); }
+        if (e.key === 'ArrowLeft')                     { e.preventDefault(); prev(); }
+    });
+
+    // Touch swipe support
+    let touchX = 0;
+    document.addEventListener('touchstart', function(e) { touchX = e.changedTouches[0].screenX; });
+    document.addEventListener('touchend', function(e) {
+        const diff = e.changedTouches[0].screenX - touchX;
+        if (Math.abs(diff) > 60) { diff < 0 ? next() : prev(); }
+    });
+
+    // PDF Export API Contract (CRITICAL)
+    window.goToSlide = function(index) { go(index); };
+    window.SLIDES_COUNT = total;
+
+    // Init
+    go(0);
+</script>
+
+</body>
+</html>
