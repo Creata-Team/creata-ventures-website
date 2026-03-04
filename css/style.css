@@ -570,30 +570,14 @@ a:hover {
 
 /* ---------- Portfolio Section ---------- */
 .portfolio-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
-  align-items: center;
+  display: block;
   padding: var(--space-10);
 }
 
-.portfolio-card:nth-child(even) {
-  direction: rtl;
-}
-
-.portfolio-card:nth-child(even) > * {
-  direction: ltr;
-}
-
-.portfolio-image {
-  background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-gray-200) 100%);
-  border-radius: var(--radius-lg);
-  aspect-ratio: 16/10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-4xl);
-  color: var(--color-gray-400);
+.portfolio-card .portfolio-emoji {
+  font-size: var(--text-3xl);
+  margin-right: var(--space-3);
+  vertical-align: middle;
 }
 
 .portfolio-badge {
@@ -1440,11 +1424,7 @@ a:hover {
   }
 
   .portfolio-card {
-    grid-template-columns: 1fr;
-  }
-
-  .portfolio-card:nth-child(even) {
-    direction: ltr;
+    padding: var(--space-6);
   }
 
   .comparison-grid {
