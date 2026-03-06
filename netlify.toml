@@ -69,6 +69,13 @@
   from = "/muzzz"
   to = "https://creata.team/p/muzzz"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/muzzz/*"
+  to = "https://creata.team/p/muzzz"
+  status = 301
+  force = true
 
 # MuzzzApp research report
 [[redirects]]
