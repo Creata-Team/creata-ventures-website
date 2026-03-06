@@ -64,11 +64,11 @@
   to = "/presentation/index.html"
   status = 200
 
-# Muzzz pitch deck
+# Muzzz pitch deck (moved to creata.team)
 [[redirects]]
   from = "/muzzz"
-  to = "/muzzz/index.html"
-  status = 200
+  to = "https://creata.team/p/muzzz"
+  status = 301
 
 # MuzzzApp research report
 [[redirects]]
