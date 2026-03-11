@@ -101,6 +101,12 @@
   to = "/internal/index.html"
   status = 200
 
+# CEVF 2026 Panel Proposal
+[[redirects]]
+  from = "/CEVF"
+  to = "/CEVF/index.html"
+  status = 200
+
 # 404 handling
 [[redirects]]
   from = "/*"

@@ -11,6 +11,12 @@ Thumbs.db
 # Logs
 *.log
 
+# Dependencies
+node_modules/
+
 # Local development
 .env
 .env.local
+
+# Local Netlify folder
+.netlify

@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creata Ventures | CEVF 2026 Panel Proposal</title>
+  <meta name="description" content="DeepTech & Creative Industries in Central Asia: Overlooked Opportunities for Investors. Panel session proposal for Central Eurasian Venture Forum 2026.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../images/cv_logo_black.svg">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #3b82f6;
+      --accent-glow: #60a5fa;
+      --gold: #f59e0b;
+      --gold-light: #fbbf24;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dark: #1e293b;
+      --surface: #1e293b;
+      --surface-light: #334155;
+      --gradient-1: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --gradient-gold: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--primary);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .nav.scrolled {
+      padding: 0.75rem 2rem;
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .nav-logo img {
+      height: 32px;
+      filter: brightness(0) invert(1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .lang-toggle {
+      display: flex;
+      gap: 0;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: var(--gradient-1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(2%, -2%) rotate(1deg); }
+      66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero-logo {
+      width: 180px;
+      margin-bottom: 2rem;
+      filter: brightness(0) invert(1);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent-glow);
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .highlight {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-meta-item .label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-meta-item .value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* ===== BLUE OCEAN ===== */
+    .ocean-section {
+      background: linear-gradient(180deg, var(--primary) 0%, #0c1829 100%);
+    }
+
+    .ocean-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .ocean-card {
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .ocean-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .ocean-card.red {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.02) 100%);
+    }
+
+    .ocean-card.blue {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 100%);
+    }
+
+    .ocean-card .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .ocean-card .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .ocean-card.red .card-icon { background: rgba(239, 68, 68, 0.15); }
+    .ocean-card.blue .card-icon { background: rgba(59, 130, 246, 0.15); }
+
+    .ocean-card .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .ocean-card.red .card-title { color: #fca5a5; }
+    .ocean-card.blue .card-title { color: var(--accent-glow); }
+
+    .ocean-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ocean-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .ocean-list .icon {
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .ocean-card.red .icon { color: #f87171; }
+    .ocean-card.blue .icon { color: #60a5fa; }
+
+    /* ===== PANEL SECTION ===== */
+    .panel-section {
+      background: var(--primary);
+    }
+
+    .panel-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .panel-timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), rgba(59, 130, 246, 0.1));
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      position: relative;
+    }
+
+    .timeline-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--primary);
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+      margin-left: 22px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    }
+
+    .timeline-content {
+      flex: 1;
+      background: var(--surface);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .timeline-content .time {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-glow);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-content h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== SERVICES ===== */
+    .services-section {
+      background: linear-gradient(180deg, var(--primary) 0%, #0c1829 100%);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-accent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(59, 130, 246, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .service-card .price {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ===== TEAM ===== */
+    .team-section {
+      background: var(--primary);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.15);
+    }
+
+    .team-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid rgba(59, 130, 246, 0.2);
+      transition: border-color 0.3s;
+    }
+
+    .team-card:hover .team-photo {
+      border-color: var(--accent);
+    }
+
+    .team-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .team-card .role {
+      font-size: 0.8rem;
+      color: var(--accent-glow);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-card .bio {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio-section {
+      background: linear-gradient(180deg, var(--primary) 0%, #0c1829 100%);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .portfolio-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .portfolio-card .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag.deeptech { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; }
+    .tag.creative { background: rgba(245, 158, 11, 0.15); color: #fcd34d; }
+    .tag.healthtech { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; }
+    .tag.biotech { background: rgba(59, 130, 246, 0.15); color: #93c5fd; }
+    .tag.gaming { background: rgba(236, 72, 153, 0.15); color: #f9a8d4; }
+    .tag.musictech { background: rgba(168, 85, 247, 0.15); color: #d8b4fe; }
+    .tag.marketplace { background: rgba(234, 179, 8, 0.15); color: #fde68a; }
+
+    .portfolio-card h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .portfolio-card .desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .portfolio-card .status {
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .status.pmf { color: #34d399; }
+    .status.active { color: #60a5fa; }
+    .status.dd { color: #fbbf24; }
+
+    /* ===== VALUE PROPS ===== */
+    .value-section {
+      background: var(--primary);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      padding: 2rem;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card.investors {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.03) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+    }
+
+    .value-card.founders {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.03) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.15);
+    }
+
+    .value-card.corporates {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.03) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.15);
+    }
+
+    .value-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .value-card.investors h3 { color: #93c5fd; }
+    .value-card.founders h3 { color: #6ee7b7; }
+    .value-card.corporates h3 { color: #fcd34d; }
+
+    .value-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .value-list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .value-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .value-card.investors .value-list li::before { background: #60a5fa; }
+    .value-card.founders .value-list li::before { background: #34d399; }
+    .value-card.corporates .value-list li::before { background: #fbbf24; }
+
+    /* ===== STATS ===== */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      padding: 3rem 2rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      margin-top: 3rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat .number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(180deg, #0c1829 0%, var(--primary) 100%);
+      padding: 5rem 2rem;
+    }
+
+    .cta-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 550px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gradient-accent);
+      color: white;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      color: var(--accent-glow);
+      text-decoration: none;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .value-grid { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0.75rem 1rem; }
+      .nav-links { display: none; }
+      .ocean-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .hero-meta { gap: 1.5rem; }
+      section { padding: 4rem 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: 1fr; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="../" class="nav-logo">
+      <img src="../images/cv_logo_white.svg" alt="Creata Ventures">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#thesis">Thesis</a></li>
+      <li><a href="#panel">Panel</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('ru')">RU</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <img src="../images/cv_logo_white.svg" alt="Creata Ventures" class="hero-logo">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span data-ru="Предложение панельной сессии" data-en="Panel Session Proposal">Предложение панельной сессии</span>
+      </div>
+      <h1>
+        <span data-ru="DeepTech и креативные индустрии" data-en="DeepTech & Creative Industries">DeepTech и креативные индустрии</span><br>
+        <span data-ru="в Центральной Азии:" data-en="in Central Asia:">в Центральной Азии:</span><br>
+        <span class="highlight" data-ru="Незамеченные перспективы для инвесторов" data-en="Overlooked Opportunities for Investors">Незамеченные перспективы для инвесторов</span>
+      </h1>
+      <p class="hero-sub" data-ru="Предложение для Central Eurasian Venture Forum 2026 от Creata Ventures Studio — венчурной студии DeepTech и креативных индустрий" data-en="Proposal for Central Eurasian Venture Forum 2026 from Creata Ventures Studio — a venture studio for DeepTech and creative industries">
+        Предложение для Central Eurasian Venture Forum 2026 от Creata Ventures Studio — венчурной студии DeepTech и креативных индустрий
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="label" data-ru="Дата" data-en="Date">Дата</span>
+          <span class="value" data-ru="3 апреля 2026" data-en="April 3, 2026">3 апреля 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label" data-ru="Формат" data-en="Format">Формат</span>
+          <span class="value" data-ru="Панельная сессия, 60 мин" data-en="Panel session, 60 min">Панельная сессия, 60 мин</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label" data-ru="Площадка" data-en="Venue">Площадка</span>
+          <span class="value">JW Marriott, Tashkent</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label" data-ru="Организатор" data-en="Organizer">Организатор</span>
+          <span class="value">CEVF / MOST</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLUE OCEAN -->
+  <section class="ocean-section" id="thesis">
+    <div class="container">
+      <div class="section-label fade-in" data-ru="Тезис" data-en="Thesis">Тезис</div>
+      <h2 class="section-title fade-in" data-ru="Почему DeepTech и креативные индустрии — голубой океан Центральной Азии" data-en="Why DeepTech & Creative Industries are Central Asia's Blue Ocean">Почему DeepTech и креативные индустрии — голубой океан Центральной Азии</h2>
+      <p class="section-desc fade-in" data-ru="Регион перенасыщен IT-стартапами с низкими барьерами. DeepTech и креативные индустрии — почти пусты, а именно там кратная доходность и стратегические преимущества." data-en="The region is oversaturated with IT startups with low barriers. DeepTech and creative industries are nearly empty — and that's where outsized returns and strategic advantages lie.">
+        Регион перенасыщен IT-стартапами с низкими барьерами. DeepTech и креативные индустрии — почти пусты, а именно там кратная доходность и стратегические преимущества.
+      </p>
+
+      <div class="ocean-grid">
+        <div class="ocean-card red fade-in">
+          <div class="card-header">
+            <div class="card-icon">&#x1F534;</div>
+            <div class="card-title" data-ru="IT-стартапы (красный океан)" data-en="IT Startups (Red Ocean)">IT-стартапы (красный океан)</div>
+          </div>
+          <ul class="ocean-list">
+            <li><span class="icon">&#x2717;</span> <span data-ru="100+ фондов, одинаковые сделки" data-en="100+ funds, identical deals">100+ фондов, одинаковые сделки</span></li>
+            <li><span class="icon">&#x2717;</span> <span data-ru="Низкий барьер входа — все клонируют" data-en="Low entry barrier — everyone clones">Низкий барьер входа — все клонируют</span></li>
+            <li><span class="icon">&#x2717;</span> <span data-ru="Слабый IP / Moat" data-en="Weak IP / Moat">Слабый IP / Moat</span></li>
+            <li><span class="icon">&#x2717;</span> <span data-ru="Локальный рынок, потолок $50-100M" data-en="Local market, $50-100M ceiling">Локальный рынок, потолок $50-100M</span></li>
+            <li><span class="icon">&#x2717;</span> <span data-ru="Рынок переполнен" data-en="Overcrowded market">Рынок переполнен</span></li>
+          </ul>
+        </div>
+
+        <div class="ocean-card blue fade-in fade-in-delay-1">
+          <div class="card-header">
+            <div class="card-icon">&#x1F535;</div>
+            <div class="card-title" data-ru="DeepTech + Creative Industries (голубой океан)" data-en="DeepTech + Creative Industries (Blue Ocean)">DeepTech + Creative Industries (голубой океан)</div>
+          </div>
+          <ul class="ocean-list">
+            <li><span class="icon">&#x2713;</span> <span data-ru="Единичные игроки — первые получат всё" data-en="Few players — first movers take all">Единичные игроки — первые получат всё</span></li>
+            <li><span class="icon">&#x2713;</span> <span data-ru="Высокий барьер → защита инвестора" data-en="High barrier → investor protection">Высокий барьер → защита инвестора</span></li>
+            <li><span class="icon">&#x2713;</span> <span data-ru="Патенты, лицензии, IP контента" data-en="Patents, licenses, content IP">Патенты, лицензии, IP контента</span></li>
+            <li><span class="icon">&#x2713;</span> <span data-ru="Глобальный рынок через AIFC" data-en="Global market via AIFC">Глобальный рынок через AIFC</span></li>
+            <li><span class="icon">&#x2713;</span> <span data-ru="Уникальная ресурсная база (руды, агро, био, наука)" data-en="Unique resource base (ores, agri, bio, science)">Уникальная ресурсная база (руды, агро, био, наука)</span></li>
+            <li><span class="icon">&#x2713;</span> <span data-ru="GameDev, MusicTech, e-commerce — растущие рынки ЦА" data-en="GameDev, MusicTech, e-commerce — growing CA markets">GameDev, MusicTech, e-commerce — растущие рынки ЦА</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="padding: 0 2rem 4rem; background: #0c1829;">
+    <div class="container">
+      <div class="stats-bar fade-in">
+        <div class="stat">
+          <div class="number">20</div>
+          <div class="label" data-ru="стартапов в портфеле" data-en="startups in portfolio">стартапов в портфеле</div>
+        </div>
+        <div class="stat">
+          <div class="number">12</div>
+          <div class="label" data-ru="упакованных проектов" data-en="packaged projects">упакованных проектов</div>
+        </div>
+        <div class="stat">
+          <div class="number">5</div>
+          <div class="label" data-ru="международных экспертов" data-en="international experts">международных экспертов</div>
+        </div>
+        <div class="stat">
+          <div class="number">30+</div>
+          <div class="label" data-ru="лет опыта VC (Кендрик)" data-en="years VC experience (Kendrick)">лет опыта VC (Кендрик)</div>
+        </div>
+        <div class="stat">
+          <div class="number">$24M</div>
+          <div class="label" data-ru="опыт MUNIS (World Bank)" data-en="MUNIS experience (World Bank)">опыт MUNIS (World Bank)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL STRUCTURE -->
+  <section class="panel-section" id="panel">
+    <div class="container">
+      <div class="section-label fade-in" data-ru="Формат панели" data-en="Panel Format">Формат панели</div>
+      <h2 class="section-title fade-in" data-ru="Структура сессии: 60 минут" data-en="Session Structure: 60 Minutes">Структура сессии: 60 минут</h2>
+      <p class="section-desc fade-in" data-ru="Практический формат: от глобального контекста к конкретным кейсам и инструментам." data-en="Practical format: from global context to specific cases and tools.">
+        Практический формат: от глобального контекста к конкретным кейсам и инструментам.
+      </p>
+
+      <div class="panel-timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time" data-ru="5 мин — Открытие" data-en="5 min — Opening">5 мин — Открытие</div>
+            <h3 data-ru="Почему DeepTech и креативные индустрии — голубой океан ЦА" data-en="Why DeepTech & Creative Industries are CA's Blue Ocean">Почему DeepTech и креативные индустрии — голубой океан ЦА</h3>
+            <p data-ru="Цифры, контраст с IT-инвестициями, рыночная возможность" data-en="Numbers, contrast with IT investments, market opportunity">Цифры, контраст с IT-инвестициями, рыночная возможность</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in fade-in-delay-1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time" data-ru="10 мин — Глобальный контекст" data-en="10 min — Global Context">10 мин — Глобальный контекст</div>
+            <h3 data-ru="30 лет в VC: эволюция DeepTech-инвестирования" data-en="30 Years in VC: DeepTech Investing Evolution">30 лет в VC: эволюция DeepTech-инвестирования</h3>
+            <p data-ru="Спикер: Kendrick White (MBA Kellogg, ex-EBRD/KfW, Quadriga Capital)" data-en="Speaker: Kendrick White (MBA Kellogg, ex-EBRD/KfW, Quadriga Capital)">Спикер: Kendrick White (MBA Kellogg, ex-EBRD/KfW, Quadriga Capital)</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in fade-in-delay-2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time" data-ru="10 мин — Региональная специфика" data-en="10 min — Regional Specifics">10 мин — Региональная специфика</div>
+            <h3 data-ru="Коммерциализация технологий в ЦА" data-en="Tech Commercialization in Central Asia">Коммерциализация технологий в ЦА</h3>
+            <p data-ru="Опыт World Bank/MUNIS ($24M, 1200+ участников, 13 регионов Узбекистана), барьеры и возможности" data-en="World Bank/MUNIS experience ($24M, 1,200+ participants, 13 regions of Uzbekistan), barriers and opportunities">Опыт World Bank/MUNIS ($24M, 1200+ участников, 13 регионов Узбекистана), барьеры и возможности</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in fade-in-delay-3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time" data-ru="10 мин — Кейсы из портфеля" data-en="10 min — Portfolio Cases">10 мин — Кейсы из портфеля</div>
+            <h3 data-ru="NMT, ALUMINICO, Muzzz, Lipsar — конкретные цифры" data-en="NMT, ALUMINICO, Muzzz, Lipsar — Specific Numbers">NMT, ALUMINICO, Muzzz, Lipsar — конкретные цифры</h3>
+            <p data-ru="HealthTech (PMF), Industrial (MHD), MusicTech, Gaming — кейсы DeepTech и креативных индустрий" data-en="HealthTech (PMF), Industrial (MHD), MusicTech, Gaming — DeepTech & creative industries cases">HealthTech (PMF), Industrial (MHD), MusicTech, Gaming — кейсы DeepTech и креативных индустрий</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in fade-in-delay-4">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time" data-ru="5 мин — Модель и инструменты" data-en="5 min — Model & Tools">5 мин — Модель и инструменты</div>
+            <h3 data-ru="Venture Studio + AIFC: снижение барьеров" data-en="Venture Studio + AIFC: Lowering Barriers">Venture Studio + AIFC: снижение барьеров</h3>
+            <p data-ru="Модель институционального сооснователя, AIFC-юрисдикция (0% CIT, английское право)" data-en="Institutional co-founder model, AIFC jurisdiction (0% CIT, English law)">Модель институционального сооснователя, AIFC-юрисдикция (0% CIT, английское право)</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in fade-in-delay-4">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time" data-ru="15 мин — Q&A / Дискуссия" data-en="15 min — Q&A / Discussion">15 мин — Q&A / Дискуссия</div>
+            <h3 data-ru="Вопросы из зала, нетворкинг" data-en="Audience Questions, Networking">Вопросы из зала, нетворкинг</h3>
+            <p data-ru="Вовлечение аудитории. Приглашение на кофе-зону для продолжения диалога" data-en="Audience engagement. Invitation to coffee zone for continued dialogue">Вовлечение аудитории. Приглашение на кофе-зону для продолжения диалога</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-label fade-in" data-ru="Сервисы для корпоратов" data-en="Corporate Services">Сервисы для корпоратов</div>
+      <h2 class="section-title fade-in" data-ru="Что мы предлагаем рынку" data-en="What We Offer the Market">Что мы предлагаем рынку</h2>
+      <p class="section-desc fade-in" data-ru="Полный цикл: от поиска технологии до создания компании" data-en="Full cycle: from technology search to company creation">
+        Полный цикл: от поиска технологии до создания компании
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">&#x1F50D;</div>
+          <h3 data-ru="Technology Scouting" data-en="Technology Scouting">Technology Scouting</h3>
+          <p data-ru="Найдём и упакуем технологию под вашу бизнес-задачу. Due diligence, инвестиционные меморандумы, со-инвестирование через AIFC" data-en="Find and package technology for your business challenge. Due diligence, investment memos, co-investment through AIFC">Найдём и упакуем технологию под вашу бизнес-задачу. Due diligence, инвестиционные меморандумы, со-инвестирование через AIFC</p>
+          <div class="price" data-ru="$5-15K/мес или success fee" data-en="$5-15K/mo or success fee">$5-15K/мес или success fee</div>
+        </div>
+
+        <div class="service-card fade-in fade-in-delay-1">
+          <div class="service-icon">&#x2697;</div>
+          <h3 data-ru="R&D Commercialization" data-en="R&D Commercialization">R&D Commercialization</h3>
+          <p data-ru="Превращаем лабораторные разработки в продукт. Оценка TRL, патентный ландшафт, финмоделирование, spin-off" data-en="Turn lab developments into products. TRL assessment, patent landscape, financial modeling, spin-off">Превращаем лабораторные разработки в продукт. Оценка TRL, патентный ландшафт, финмоделирование, spin-off</p>
+          <div class="price" data-ru="Проект $50-150K или equity" data-en="Project $50-150K or equity">Проект $50-150K или equity</div>
+        </div>
+
+        <div class="service-card fade-in fade-in-delay-2">
+          <div class="service-icon">&#x1F3D7;</div>
+          <h3 data-ru="Corporate Venture Building" data-en="Corporate Venture Building">Corporate Venture Building</h3>
+          <p data-ru="Построим стартап внутри вашей компании. Идеация, валидация, MVP за 12-18 месяцев, spin-off с equity" data-en="Build a startup inside your company. Ideation, validation, MVP in 12-18 months, spin-off with equity">Построим стартап внутри вашей компании. Идеация, валидация, MVP за 12-18 месяцев, spin-off с equity</p>
+          <div class="price" data-ru="Equity-based (без upfront fee)" data-en="Equity-based (no upfront fee)">Equity-based (без upfront fee)</div>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">&#x1F9E0;</div>
+          <h3 data-ru="Диагностика команд" data-en="Team Diagnostics">Диагностика команд</h3>
+          <p data-ru="Психотипирование + EEG-мониторинг. Team map, подбор фаундеров через iKarma, корпоративный wellness (NMT)" data-en="Psychotyping + EEG monitoring. Team map, founder matching via iKarma, corporate wellness (NMT)">Психотипирование + EEG-мониторинг. Team map, подбор фаундеров через iKarma, корпоративный wellness (NMT)</p>
+          <div class="price" data-ru="от 1.2 млн тг / команда" data-en="from 1.2M KZT / team">от 1.2 млн тг / команда</div>
+        </div>
+
+        <div class="service-card fade-in fade-in-delay-1">
+          <div class="service-icon">&#x1F4CA;</div>
+          <h3 data-ru="Strategic Consulting" data-en="Strategic Consulting">Strategic Consulting</h3>
+          <p data-ru="Design Thinking, оргтрансформация (PROSCI ADKAR), PMO, 3 авторские модели — опыт Самрук-Казына" data-en="Design Thinking, org transformation (PROSCI ADKAR), PMO, 3 proprietary models — Samruk-Kazyna experience">Design Thinking, оргтрансформация (PROSCI ADKAR), PMO, 3 авторские модели — опыт Самрук-Казына</p>
+          <div class="price" data-ru="4-20 млн тг / сессия" data-en="4-20M KZT / session">4-20 млн тг / сессия</div>
+        </div>
+
+        <div class="service-card fade-in fade-in-delay-2">
+          <div class="service-icon">&#x1F30D;</div>
+          <h3 data-ru="Market Entry & GR" data-en="Market Entry & GR">Market Entry & GR</h3>
+          <p data-ru="Вход в рынок ЦА: анализ КЗ/УЗ/КГ, AIFC-навигация, JV-структурирование, контакты с министерствами и донорами" data-en="Enter CA market: KZ/UZ/KG analysis, AIFC navigation, JV structuring, contacts with ministries and donors">Вход в рынок ЦА: анализ КЗ/УЗ/КГ, AIFC-навигация, JV-структурирование, контакты с министерствами и донорами</p>
+          <div class="price" data-ru="$25-100K / market entry study" data-en="$25-100K / market entry study">$25-100K / market entry study</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITIONS -->
+  <section class="value-section">
+    <div class="container">
+      <div class="section-label fade-in" data-ru="Ценность для аудитории" data-en="Value for Audience">Ценность для аудитории</div>
+      <h2 class="section-title fade-in" data-ru="Что получит каждый участник" data-en="What Every Participant Gets">Что получит каждый участник</h2>
+
+      <div class="value-grid">
+        <div class="value-card investors fade-in">
+          <h3 data-ru="&#x1F4B0; Инвесторам" data-en="&#x1F4B0; For Investors">&#x1F4B0; Инвесторам</h3>
+          <ul class="value-list">
+            <li data-ru="Готовый pipeline DeepTech и креативных сделок (12+ проектов)" data-en="Ready DeepTech & creative deal pipeline (12+ projects)">Готовый pipeline DeepTech и креативных сделок (12+ проектов)</li>
+            <li data-ru="Модель со-инвестирования с пониженным риском" data-en="Co-investment model with reduced risk">Модель со-инвестирования с пониженным риском</li>
+            <li data-ru="Доступ к AIFC (0% CIT, английское право)" data-en="Access to AIFC (0% CIT, English law)">Доступ к AIFC (0% CIT, английское право)</li>
+            <li data-ru="Экспертиза: 30+ лет VC + World Bank" data-en="Expertise: 30+ years VC + World Bank">Экспертиза: 30+ лет VC + World Bank</li>
+          </ul>
+        </div>
+
+        <div class="value-card founders fade-in fade-in-delay-1">
+          <h3 data-ru="&#x1F680; Фаундерам" data-en="&#x1F680; For Founders">&#x1F680; Фаундерам</h3>
+          <ul class="value-list">
+            <li data-ru="Пример: ALUMINICO — от лаборатории до EBRD pipeline" data-en="Example: ALUMINICO — from lab to EBRD pipeline">Пример: ALUMINICO — от лаборатории до EBRD pipeline</li>
+            <li data-ru="24 месяца поддержки без upfront fee" data-en="24 months of support, no upfront fee">24 месяца поддержки без upfront fee</li>
+            <li data-ru="IP, финмоделирование, юрисдикция" data-en="IP, financial modeling, jurisdiction">IP, финмоделирование, юрисдикция</li>
+            <li data-ru="Доступ к сети инвесторов" data-en="Access to investor network">Доступ к сети инвесторов</li>
+          </ul>
+        </div>
+
+        <div class="value-card corporates fade-in fade-in-delay-2">
+          <h3 data-ru="&#x1F3E2; Корпоратам" data-en="&#x1F3E2; For Corporates">&#x1F3E2; Корпоратам</h3>
+          <ul class="value-list">
+            <li data-ru="Technology Scouting as a Service" data-en="Technology Scouting as a Service">Technology Scouting as a Service</li>
+            <li data-ru="R&D коммерциализация и spin-off" data-en="R&D commercialization and spin-off">R&D коммерциализация и spin-off</li>
+            <li data-ru="Корпоративный wellness (EEG + психотипирование)" data-en="Corporate wellness (EEG + psychotyping)">Корпоративный wellness (EEG + психотипирование)</li>
+            <li data-ru="Вход в рынок ЦА через AIFC" data-en="Enter CA market via AIFC">Вход в рынок ЦА через AIFC</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section" id="team">
+    <div class="container">
+      <div class="section-label fade-in" data-ru="Спикеры панели" data-en="Panel Speakers">Спикеры панели</div>
+      <h2 class="section-title fade-in" data-ru="Команда Creata Ventures" data-en="Creata Ventures Team">Команда Creata Ventures</h2>
+      <p class="section-desc fade-in" data-ru="Международная команда с уникальной комбинацией VC, tech commercialization и корпоративной экспертизы" data-en="International team with a unique combination of VC, tech commercialization, and corporate expertise">
+        Международная команда с уникальной комбинацией VC, tech commercialization и корпоративной экспертизы
+      </p>
+
+      <div class="team-grid">
+        <div class="team-card fade-in">
+          <img src="../images/david-tuganov.jpg" alt="David Tuganov" class="team-photo">
+          <h3>David Tuganov</h3>
+          <div class="role">Managing Director</div>
+          <div class="bio" data-ru="16+ лет трансформации. Самрук-Казына (8 лет). Design Thinking, PROSCI. 55+ проектов." data-en="16+ years transformation. Samruk-Kazyna (8 years). Design Thinking, PROSCI. 55+ projects.">16+ лет трансформации. Самрук-Казына (8 лет). Design Thinking, PROSCI. 55+ проектов.</div>
+        </div>
+
+        <div class="team-card fade-in fade-in-delay-1">
+          <img src="../images/Kendrick-White.jpg" alt="Kendrick White" class="team-photo">
+          <h3>Kendrick White</h3>
+          <div class="role" data-ru="Эксперт по Tech Commercialization" data-en="Tech Commercialization Expert">Эксперт по Tech Commercialization</div>
+          <div class="bio" data-ru="30+ лет VC. MBA Kellogg. EBRD/KfW, Quadriga Capital. Вице-ректор AlmaU." data-en="30+ years VC. MBA Kellogg. EBRD/KfW, Quadriga Capital. Vice-Rector AlmaU.">30+ лет VC. MBA Kellogg. EBRD/KfW, Quadriga Capital. Вице-ректор AlmaU.</div>
+        </div>
+
+        <div class="team-card fade-in fade-in-delay-2">
+          <img src="../images/Sergey-Makarov.jpg" alt="Sergey Makarov" class="team-photo">
+          <h3>Sergey Makarov</h3>
+          <div class="role" data-ru="Эксперт по Venture & Innovation" data-en="Venture & Innovation Expert">Эксперт по Venture & Innovation</div>
+          <div class="bio" data-ru="20+ лет стратегии и НИОКР. Консультант Всемирного банка (MUNIS, $24M). Mendeleev.VC." data-en="20+ years strategy & R&D. World Bank consultant (MUNIS, $24M). Mendeleev.VC.">20+ лет стратегии и НИОКР. Консультант Всемирного банка (MUNIS, $24M). Mendeleev.VC.</div>
+        </div>
+
+        <div class="team-card fade-in fade-in-delay-3">
+          <img src="../images/Ekaterina-Runova.jpg" alt="Ekaterina Runova" class="team-photo">
+          <h3>Ekaterina Runova</h3>
+          <div class="role" data-ru="IP & Tech Transfer" data-en="IP & Tech Transfer">IP & Tech Transfer</div>
+          <div class="bio" data-ru="PhD Biology. Biotech co-founder. Патентные исследования. HSE, тренер MUNIS." data-en="PhD Biology. Biotech co-founder. Patent research. HSE, MUNIS trainer.">PhD Biology. Biotech co-founder. Патентные исследования. HSE, тренер MUNIS.</div>
+        </div>
+
+        <div class="team-card fade-in">
+          <img src="../images/Abylay-Akhymbekov.jpg" alt="Abylay Akhymbekov" class="team-photo">
+          <h3>Abylay Akhymbekov</h3>
+          <div class="role" data-ru="Technology Broker" data-en="Technology Broker">Technology Broker</div>
+          <div class="bio" data-ru="MSc Manchester (Bolashak). AlmaU TCC. Проекты World Bank по коммерциализации технологий." data-en="MSc Manchester (Bolashak). AlmaU TCC. World Bank tech commercialization projects.">MSc Manchester (Bolashak). AlmaU TCC. Проекты World Bank по коммерциализации технологий.</div>
+        </div>
+
+        <div class="team-card fade-in fade-in-delay-1">
+          <img src="../images/Evgeny-Brooks.jpg" alt="Evgeny Evdokimov" class="team-photo">
+          <h3>Evgeny Evdokimov</h3>
+          <div class="role" data-ru="Venture Capital Expert" data-en="Venture Capital Expert">Venture Capital Expert</div>
+          <div class="bio" data-ru="DeepTech investing. ALUMINICO (MHD-технология). Международный опыт привлечения инвестиций." data-en="DeepTech investing. ALUMINICO (MHD technology). International investment experience.">DeepTech investing. ALUMINICO (MHD-технология). Международный опыт привлечения инвестиций.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      <div class="section-label fade-in" data-ru="Портфель" data-en="Portfolio">Портфель</div>
+      <h2 class="section-title fade-in" data-ru="DeepTech и креативные проекты" data-en="DeepTech & Creative Projects">DeepTech и креативные проекты</h2>
+      <p class="section-desc fade-in" data-ru="Упакованные инвестиционные проекты с one-pager'ами, финмоделями и командами" data-en="Packaged investment projects with one-pagers, financial models, and teams">
+        Упакованные инвестиционные проекты с one-pager'ами, финмоделями и командами
+      </p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card fade-in">
+          <div class="tag healthtech">HealthTech</div>
+          <h4>NMT</h4>
+          <div class="desc" data-ru="EEG-психотерапия с объективным мониторингом. Запатентованная методика. Единственная в СНГ." data-en="EEG psychotherapy with objective monitoring. Patented methodology. Only one in the CIS.">EEG-психотерапия с объективным мониторингом. Запатентованная методика. Единственная в СНГ.</div>
+          <div class="status pmf" data-ru="&#x2713; Product-Market Fit" data-en="&#x2713; Product-Market Fit">&#x2713; Product-Market Fit</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-1">
+          <div class="tag deeptech">DeepTech / Industrial</div>
+          <h4>ALUMINICO</h4>
+          <div class="desc" data-ru="MHD горячее алюминирование. Промышленная технология нового поколения. EBRD pipeline." data-en="MHD hot aluminizing. Next-generation industrial technology. EBRD pipeline.">MHD горячее алюминирование. Промышленная технология нового поколения. EBRD pipeline.</div>
+          <div class="status active" data-ru="&#x2794; Active Development" data-en="&#x2794; Active Development">&#x2794; Active Development</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-2">
+          <div class="tag biotech">BioTech / Genomics</div>
+          <h4>AGC</h4>
+          <div class="desc" data-ru="Генетическое тестирование. JV с BGI/Forebright. Клинические лаборатории." data-en="Genetic testing. JV with BGI/Forebright. Clinical laboratories.">Генетическое тестирование. JV с BGI/Forebright. Клинические лаборатории.</div>
+          <div class="status dd" data-ru="&#x23F3; Due Diligence" data-en="&#x23F3; Due Diligence">&#x23F3; Due Diligence</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-3">
+          <div class="tag biotech">BioTech / AgriTech</div>
+          <h4>CBFeed</h4>
+          <div class="desc" data-ru="Ферментированные кормовые добавки из отходов. Узбекистан. Circular economy." data-en="Fermented feed additives from waste. Uzbekistan. Circular economy.">Ферментированные кормовые добавки из отходов. Узбекистан. Circular economy.</div>
+          <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
+        </div>
+
+        <div class="portfolio-card fade-in">
+          <div class="tag healthtech">HealthTech / AI</div>
+          <h4>Regain</h4>
+          <div class="desc" data-ru="AI-платформа для реверса хронических болезней. Клинические AI-агенты." data-en="AI platform for chronic disease reversal. Clinical AI agents.">AI-платформа для реверса хронических болезней. Клинические AI-агенты.</div>
+          <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-1">
+          <div class="tag deeptech">DeepTech / Platform</div>
+          <h4>iKarma</h4>
+          <div class="desc" data-ru="5-в-1 психодиагностика с AI-синтезом. MBTI, совместимость, карьера." data-en="5-in-1 psychodiagnostics with AI synthesis. MBTI, compatibility, career.">5-в-1 психодиагностика с AI-синтезом. MBTI, совместимость, карьера.</div>
+          <div class="status active" data-ru="&#x2794; MVP Ready" data-en="&#x2794; MVP Ready">&#x2794; MVP Ready</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-2">
+          <div class="tag deeptech">Travel Tech</div>
+          <h4>OTA</h4>
+          <div class="desc" data-ru="White-label туристическая экосистема для городов Центральной Азии." data-en="White-label tourism ecosystem for Central Asian cities.">White-label туристическая экосистема для городов Центральной Азии.</div>
+          <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-3">
+          <div class="tag deeptech">Org Resilience</div>
+          <h4>RiDraw</h4>
+          <div class="desc" data-ru="Платформа организационной устойчивости. Santosh Dubey (Oxford MBA). UK." data-en="Organizational resilience platform. Santosh Dubey (Oxford MBA). UK.">Платформа организационной устойчивости. Santosh Dubey (Oxford MBA). UK.</div>
+          <div class="status active" data-ru="&#x2794; Pre-seed" data-en="&#x2794; Pre-seed">&#x2794; Pre-seed</div>
+        </div>
+
+        <div class="portfolio-card fade-in">
+          <div class="tag musictech">MusicTech</div>
+          <h4>Muzzz</h4>
+          <div class="desc" data-ru="Дистрибуция и монетизация музыки для артистов Центральной Азии. Региональный Spotify-killer." data-en="Music distribution and monetization for Central Asian artists. Regional Spotify-killer.">Дистрибуция и монетизация музыки для артистов Центральной Азии. Региональный Spotify-killer.</div>
+          <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-1">
+          <div class="tag gaming">Gaming Studio</div>
+          <h4>Lipsar</h4>
+          <div class="desc" data-ru="Игровая студия, 40+ человек. Мобильные игры и AR/VR. Ask $4.5M за 20%." data-en="Gaming studio, 40+ people. Mobile games and AR/VR. Ask $4.5M for 20%.">Игровая студия, 40+ человек. Мобильные игры и AR/VR. Ask $4.5M за 20%.</div>
+          <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-2">
+          <div class="tag creative">GameDev Accelerator</div>
+          <h4>Creata Games</h4>
+          <div class="desc" data-ru="Акселератор игровых студий ЦА. Менторство, издательство, со-продакшн." data-en="CA gaming studio accelerator. Mentoring, publishing, co-production.">Акселератор игровых студий ЦА. Менторство, издательство, со-продакшн.</div>
+          <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
+        </div>
+
+        <div class="portfolio-card fade-in fade-in-delay-3">
+          <div class="tag marketplace">E-commerce / Marketplace</div>
+          <h4>Bota Marketplace</h4>
+          <div class="desc" data-ru="China-KZ e-commerce маркетплейс. B2C/B2B. Логистика из Китая в ЦА." data-en="China-KZ e-commerce marketplace. B2C/B2B. Logistics from China to CA.">China-KZ e-commerce маркетплейс. B2C/B2B. Логистика из Китая в ЦА.</div>
+          <div class="status dd" data-ru="&#x23F3; Design Phase" data-en="&#x23F3; Design Phase">&#x23F3; Design Phase</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <h2 data-ru="Давайте обсудим формат" data-en="Let's Discuss the Format">Давайте обсудим формат</h2>
+      <p data-ru="Мы готовы адаптировать программу под формат CEVF и привезти готовых спикеров с кейсами" data-en="We are ready to adapt the program to CEVF format and bring prepared speakers with cases">
+        Мы готовы адаптировать программу под формат CEVF и привезти готовых спикеров с кейсами
+      </p>
+      <div class="cta-buttons">
+        <a href="mailto:david@creata.team" class="btn btn-primary" data-ru="&#x2709; Написать нам" data-en="&#x2709; Contact Us">&#x2709; Написать нам</a>
+        <a href="https://www.creata.ventures" class="btn btn-outline" data-ru="&#x1F310; creata.ventures" data-en="&#x1F310; creata.ventures">&#x1F310; creata.ventures</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 <a href="https://www.creata.ventures">Creata Ventures Studio Ltd</a> &middot; AIFC, Astana, Kazakhstan &middot; david@creata.team &middot; +7 776 532 99 77</p>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Language switcher
+    let currentLang = 'ru';
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('.lang-toggle button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+      });
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text) el.textContent = text;
+      });
+    }
+  </script>
+</body>
+</html>
