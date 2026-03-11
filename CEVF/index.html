@@ -66,7 +66,7 @@
     }
 
     .nav-logo img {
-      height: 32px;
+      height: 40px;
       filter: brightness(0) invert(1);
     }
 
@@ -125,10 +125,20 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 6rem 2rem 4rem;
+      padding: 8rem 2rem 5rem;
       background: var(--gradient-1);
       position: relative;
       overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.4), transparent);
     }
 
     .hero::before {
@@ -138,8 +148,9 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
-                  radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+      background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 60%),
+                  radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 40%);
       animation: float 20s ease-in-out infinite;
     }
 
@@ -152,28 +163,22 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 900px;
-    }
-
-    .hero-logo {
-      width: 180px;
-      margin-bottom: 2rem;
-      filter: brightness(0) invert(1);
+      max-width: 950px;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.5rem 1.25rem;
-      background: rgba(59, 130, 246, 0.12);
-      border: 1px solid rgba(59, 130, 246, 0.25);
+      padding: 0.5rem 1.5rem;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
       border-radius: 100px;
       font-size: 0.85rem;
       font-weight: 500;
       color: var(--accent-glow);
-      margin-bottom: 2rem;
-      letter-spacing: 0.02em;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.03em;
     }
 
     .hero-badge .dot {
@@ -191,10 +196,10 @@
 
     .hero h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
       font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
+      line-height: 1.15;
+      margin-bottom: 1.75rem;
       letter-spacing: -0.02em;
     }
 
@@ -517,14 +522,14 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 3rem;
     }
 
     .team-card {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem 1.25rem;
       border-radius: var(--radius);
       background: var(--surface);
       border: 1px solid rgba(255,255,255,0.06);
@@ -533,21 +538,23 @@
 
     .team-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.2);
+      box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.1);
     }
 
     .team-photo {
-      width: 100px;
-      height: 100px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       border: 3px solid rgba(59, 130, 246, 0.2);
-      transition: border-color 0.3s;
+      transition: all 0.3s;
     }
 
     .team-card:hover .team-photo {
       border-color: var(--accent);
+      transform: scale(1.05);
     }
 
     .team-card h3 {
@@ -577,8 +584,8 @@
 
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
       margin-top: 3rem;
     }
 
@@ -586,13 +593,14 @@
       background: var(--surface);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
-      padding: 1.5rem;
+      padding: 1.75rem;
       transition: all 0.3s ease;
     }
 
     .portfolio-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.12);
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.3);
     }
 
     .portfolio-card .tag {
@@ -891,7 +899,6 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-content">
-      <img src="../images/cv_logo_white.svg" alt="Creata Ventures" class="hero-logo">
       <div class="hero-badge">
         <span class="dot"></span>
         <span data-ru="Предложение панельной сессии" data-en="Panel Session Proposal">Предложение панельной сессии</span>
@@ -976,7 +983,7 @@
           <div class="label" data-ru="стартапов в портфеле" data-en="startups in portfolio">стартапов в портфеле</div>
         </div>
         <div class="stat">
-          <div class="number">12</div>
+          <div class="number">9</div>
           <div class="label" data-ru="упакованных проектов" data-en="packaged projects">упакованных проектов</div>
         </div>
         <div class="stat">
@@ -1122,7 +1129,7 @@
         <div class="value-card investors fade-in">
           <h3 data-ru="&#x1F4B0; Инвесторам" data-en="&#x1F4B0; For Investors">&#x1F4B0; Инвесторам</h3>
           <ul class="value-list">
-            <li data-ru="Готовый pipeline DeepTech и креативных сделок (12+ проектов)" data-en="Ready DeepTech & creative deal pipeline (12+ projects)">Готовый pipeline DeepTech и креативных сделок (12+ проектов)</li>
+            <li data-ru="Готовый pipeline DeepTech и креативных сделок (9+ проектов)" data-en="Ready DeepTech & creative deal pipeline (9+ projects)">Готовый pipeline DeepTech и креативных сделок (9+ проектов)</li>
             <li data-ru="Модель со-инвестирования с пониженным риском" data-en="Co-investment model with reduced risk">Модель со-инвестирования с пониженным риском</li>
             <li data-ru="Доступ к AIFC (0% CIT, английское право)" data-en="Access to AIFC (0% CIT, English law)">Доступ к AIFC (0% CIT, английское право)</li>
             <li data-ru="Экспертиза: 30+ лет VC + World Bank" data-en="Expertise: 30+ years VC + World Bank">Экспертиза: 30+ лет VC + World Bank</li>
@@ -1252,32 +1259,11 @@
           <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
         </div>
 
-        <div class="portfolio-card fade-in fade-in-delay-1">
-          <div class="tag deeptech">DeepTech / Platform</div>
-          <h4>iKarma</h4>
-          <div class="desc" data-ru="5-в-1 психодиагностика с AI-синтезом. MBTI, совместимость, карьера." data-en="5-in-1 psychodiagnostics with AI synthesis. MBTI, compatibility, career.">5-в-1 психодиагностика с AI-синтезом. MBTI, совместимость, карьера.</div>
-          <div class="status active" data-ru="&#x2794; MVP Ready" data-en="&#x2794; MVP Ready">&#x2794; MVP Ready</div>
-        </div>
-
-        <div class="portfolio-card fade-in fade-in-delay-2">
-          <div class="tag deeptech">Travel Tech</div>
-          <h4>OTA</h4>
-          <div class="desc" data-ru="White-label туристическая экосистема для городов Центральной Азии." data-en="White-label tourism ecosystem for Central Asian cities.">White-label туристическая экосистема для городов Центральной Азии.</div>
-          <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
-        </div>
-
-        <div class="portfolio-card fade-in fade-in-delay-3">
-          <div class="tag deeptech">Org Resilience</div>
-          <h4>RiDraw</h4>
-          <div class="desc" data-ru="Платформа организационной устойчивости. Santosh Dubey (Oxford MBA). UK." data-en="Organizational resilience platform. Santosh Dubey (Oxford MBA). UK.">Платформа организационной устойчивости. Santosh Dubey (Oxford MBA). UK.</div>
-          <div class="status active" data-ru="&#x2794; Pre-seed" data-en="&#x2794; Pre-seed">&#x2794; Pre-seed</div>
-        </div>
-
         <div class="portfolio-card fade-in">
           <div class="tag musictech">MusicTech</div>
           <h4>Muzzz</h4>
           <div class="desc" data-ru="Дистрибуция и монетизация музыки для артистов Центральной Азии. Региональный Spotify-killer." data-en="Music distribution and monetization for Central Asian artists. Regional Spotify-killer.">Дистрибуция и монетизация музыки для артистов Центральной Азии. Региональный Spotify-killer.</div>
-          <div class="status active" data-ru="&#x2794; Active" data-en="&#x2794; Active">&#x2794; Active</div>
+          <div class="status dd" data-ru="&#x23F3; Design Phase" data-en="&#x23F3; Design Phase">&#x23F3; Design Phase</div>
         </div>
 
         <div class="portfolio-card fade-in fade-in-delay-1">
