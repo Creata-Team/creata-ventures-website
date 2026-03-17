@@ -69,29 +69,27 @@ function initLanguageSwitcher() {
 
 function switchLanguage(lang) {
   const currentPath = window.location.pathname;
-  const currentPage = getCurrentPage(currentPath);
+  const langPrefixes = ['ru', 'zh', 'ar'];
+
+  // Strip any existing language prefix to get the base page path
+  let basePath = currentPath;
+  for (const prefix of langPrefixes) {
+    if (basePath.includes('/' + prefix + '/')) {
+      basePath = basePath.replace('/' + prefix + '/', '/');
+      break;
+    }
+  }
 
   let newPath;
-
   if (lang === 'en') {
-    // Switch to English (root)
-    if (currentPath.includes('/ru/')) {
-      newPath = currentPath.replace('/ru/', '/');
+    newPath = basePath;
+  } else {
+    // Add language prefix
+    const pathParts = basePath.split('/').filter(p => p);
+    if (pathParts.length === 0) {
+      newPath = '/' + lang + '/';
     } else {
-      newPath = currentPath; // Already in English
-    }
-  } else if (lang === 'ru') {
-    // Switch to Russian
-    if (!currentPath.includes('/ru/')) {
-      // Add /ru/ to the path
-      const pathParts = currentPath.split('/').filter(p => p);
-      if (pathParts.length === 0) {
-        newPath = '/ru/';
-      } else {
-        newPath = '/ru/' + pathParts.join('/');
-      }
-    } else {
-      newPath = currentPath; // Already in Russian
+      newPath = '/' + lang + '/' + pathParts.join('/');
     }
   }
 
@@ -109,13 +107,18 @@ function getCurrentPage(path) {
 
 function updateActiveLang() {
   const currentPath = window.location.pathname;
-  const isRussian = currentPath.includes('/ru/');
+  let currentLang = 'en';
+  const langPrefixes = ['ru', 'zh', 'ar'];
+  for (const prefix of langPrefixes) {
+    if (currentPath.includes('/' + prefix + '/')) {
+      currentLang = prefix;
+      break;
+    }
+  }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.remove('active');
-    if (btn.dataset.lang === 'ru' && isRussian) {
-      btn.classList.add('active');
-    } else if (btn.dataset.lang === 'en' && !isRussian) {
+    if (btn.dataset.lang === currentLang) {
       btn.classList.add('active');
     }
   });

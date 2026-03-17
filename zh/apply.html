@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="申请 Creata Ventures - 提交您的初创企业申请，成为投资组合公司">
+  <title>申请 | Creata Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%231a365d' width='100' height='100' rx='20'/><text x='50' y='65' font-size='50' fill='white' text-anchor='middle' font-family='Arial'>CV</text></svg>">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="../images/cv_logo_black.svg" alt="Creata Ventures" class="logo-img">
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">首页</a></li>
+          <li><a href="about.html" class="nav-link">关于我们</a></li>
+          <li><a href="team.html" class="nav-link">团队</a></li>
+          <li><a href="portfolio.html" class="nav-link">投资组合</a></li>
+          <li><a href="apply.html" class="nav-link active">申请</a></li>
+          <li><a href="contact.html" class="nav-link">联系我们</a></li>
+        </ul>
+        <div class="lang-switch">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn active" data-lang="zh">中文</button>
+          <button class="lang-btn" data-lang="ar">عربي</button>
+        </div>
+        <button class="menu-toggle" aria-label="切换菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>申请成为创始人</h1>
+      <p>向我们介绍您的项目，让我们一起探索共建的可能</p>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section class="section">
+    <div class="container container-narrow">
+
+      <!-- What We Look For -->
+      <div class="card" style="margin-bottom: var(--space-12); background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);">
+        <h3>我们在寻找什么</h3>
+        <div class="grid grid-2" style="margin-top: var(--space-6); gap: var(--space-6);">
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: var(--space-2);">✓ 赛道匹配</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-gray-600);">创意产业（GameDev、数字内容、设计）或 DeepTech（HealthTech、NeuroTech、BioTech、AgriTech、GreenTech）</p>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: var(--space-2);">✓ 阶段</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-gray-600);">天使轮至种子轮。优先考虑有 MVP 或可用原型的项目，但也欢迎有优秀想法和坚定创始人的项目。</p>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: var(--space-2);">✓ 团队</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-gray-600);">1-3位愿意全职投入的联合创始人。</p>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: var(--space-2);">✓ 雄心</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-gray-600);">5-7年内10倍退出潜力。区域或全球市场机会。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form name="founder-application-zh" method="POST" action="/zh/success.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="founder-application-zh">
+
+        <!-- Honeypot -->
+        <p class="hidden">
+          <label>请勿填写此项: <input name="bot-field"></label>
+        </p>
+
+        <!-- Personal Information -->
+        <h3 style="margin-bottom: var(--space-6);">关于您</h3>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="name">姓名 <span class="required">*</span></label>
+            <input type="text" id="name" name="name" class="form-input" required placeholder="张三">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">电子邮箱 <span class="required">*</span></label>
+            <input type="email" id="email" name="email" class="form-input" required placeholder="zhang@example.com">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="phone">电话</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+7 XXX XXX XX XX">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="linkedin">LinkedIn 链接</label>
+            <input type="url" id="linkedin" name="linkedin" class="form-input" placeholder="https://linkedin.com/in/...">
+          </div>
+        </div>
+
+        <!-- Startup Information -->
+        <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-6);">您的初创企业</h3>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="startup-name">初创企业名称 <span class="required">*</span></label>
+            <input type="text" id="startup-name" name="startup-name" class="form-input" required placeholder="Acme Inc.">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="website">网站链接</label>
+            <input type="url" id="website" name="website" class="form-input" placeholder="https://acme.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="one-liner">一句话描述 <span class="required">*</span></label>
+          <input type="text" id="one-liner" name="one-liner" class="form-input" required placeholder="我们帮助 X 使用 Z 来实现 Y">
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="sector">赛道 <span class="required">*</span></label>
+            <select id="sector" name="sector" class="form-select" required>
+              <option value="">选择赛道...</option>
+              <optgroup label="创意产业">
+                <option value="gamedev">GameDev</option>
+                <option value="digital-content">数字内容</option>
+                <option value="design-ux">设计与用户体验</option>
+                <option value="other-creative">其他创意</option>
+              </optgroup>
+              <optgroup label="DeepTech">
+                <option value="healthtech">HealthTech / MentalTech</option>
+                <option value="neurotech">NeuroTech</option>
+                <option value="biotech">BioTech</option>
+                <option value="agritech">AgriTech</option>
+                <option value="greentech">GreenTech</option>
+                <option value="other-deeptech">其他 DeepTech</option>
+              </optgroup>
+              <optgroup label="平台">
+                <option value="platform">平台 / 市场</option>
+                <option value="saas">B2B SaaS</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="stage">阶段 <span class="required">*</span></label>
+            <select id="stage" name="stage" class="form-select" required>
+              <option value="">选择阶段...</option>
+              <option value="idea">创意阶段</option>
+              <option value="prototype">原型阶段</option>
+              <option value="mvp">MVP</option>
+              <option value="pmf">产品市场匹配</option>
+              <option value="growth">增长阶段</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="team-size">团队规模</label>
+            <select id="team-size" name="team-size" class="form-select">
+              <option value="">选择...</option>
+              <option value="1">单独创始人</option>
+              <option value="2">2位联合创始人</option>
+              <option value="3">3位联合创始人</option>
+              <option value="4+">4人以上团队</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fulltime">您是否全职投入？ <span class="required">*</span></label>
+            <select id="fulltime" name="fulltime" class="form-select" required>
+              <option value="">选择...</option>
+              <option value="yes">是，全职</option>
+              <option value="soon">即将全职</option>
+              <option value="no">否，兼职</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- The Opportunity -->
+        <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-6);">机会</h3>
+
+        <div class="form-group">
+          <label class="form-label" for="problem">您在解决什么问题？ <span class="required">*</span></label>
+          <textarea id="problem" name="problem" class="form-textarea" required placeholder="描述问题以及受影响的群体..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="solution">您的解决方案和独特优势是什么？</label>
+          <textarea id="solution" name="solution" class="form-textarea" placeholder="您的方法有何独特之处？为什么您的团队能够胜出？"></textarea>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="raising">您计划融资多少？</label>
+            <input type="text" id="raising" name="raising" class="form-input" placeholder="例如：$100K">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="deck">路演文档链接</label>
+            <input type="url" id="deck" name="deck" class="form-input" placeholder="https://docs.google.com/...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pitch-deck-file">上传路演文档（PDF，最大10 MB）</label>
+          <input type="file" id="pitch-deck-file" name="pitch-deck-file" class="form-input" accept=".pdf,.pptx,.ppt" style="padding: var(--space-3);">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="anything-else">还有什么我们应该了解的？</label>
+          <textarea id="anything-else" name="anything-else" class="form-textarea" placeholder="以往的退出经历、相关经验、当前业务进展..."></textarea>
+        </div>
+
+        <!-- Consent -->
+        <div class="form-group" style="margin-top: var(--space-8);">
+          <label class="form-checkbox">
+            <input type="checkbox" name="consent" required>
+            <span>我同意将此信息分享给 Creata Ventures 用于评估。 <span class="required">*</span></span>
+          </label>
+        </div>
+
+        <!-- Submit -->
+        <div style="margin-top: var(--space-8);">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">提交申请</button>
+        </div>
+
+        <p style="text-align: center; margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-gray-500);">
+          我们审核所有申请，并在2周内回复。
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color: var(--color-white);">
+            <img src="../images/cv_logo_white.svg" alt="Creata Ventures" class="logo-img">
+          </a>
+          <p>AIFC 注册创业工作室，致力于在中亚打造创意产业与DeepTech的未来。</p>
+        </div>
+        <div>
+          <h4>导航</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="team.html">团队</a></li>
+            <li><a href="portfolio.html">投资组合</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>创始人专区</h4>
+          <ul class="footer-links">
+            <li><a href="apply.html">提交申请</a></li>
+            <li><a href="about.html#process">我们的流程</a></li>
+            <li><a href="about.html#thesis">投资理念</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>联系方式</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:david@creata.team">david@creata.team</a></li>
+            <li><a href="tel:+77765329977">+7 776 532 99 77</a></li>
+            <li>AIFC，阿斯塔纳，哈萨克斯坦</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025–2026 Creata Ventures Studio Ltd. 版权所有。</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="Telegram">tg</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

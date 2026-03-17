@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="تقدم إلى Creata Ventures - أرسل شركتك الناشئة للنظر فيها كشركة محفظة">
+  <title>التقديم | Creata Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%231a365d' width='100' height='100' rx='20'/><text x='50' y='65' font-size='50' fill='white' text-anchor='middle' font-family='Arial'>CV</text></svg>">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="../images/cv_logo_black.svg" alt="Creata Ventures" class="logo-img">
+      </a>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="about.html" class="nav-link">عن الشركة</a></li>
+          <li><a href="team.html" class="nav-link">الفريق</a></li>
+          <li><a href="portfolio.html" class="nav-link">المحفظة</a></li>
+          <li><a href="apply.html" class="nav-link active">التقديم</a></li>
+          <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+        </ul>
+        <div class="lang-switch">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="zh">中文</button>
+          <button class="lang-btn active" data-lang="ar">عربي</button>
+        </div>
+        <button class="menu-toggle" aria-label="تبديل القائمة" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>تقدم كمؤسس</h1>
+      <p>أخبرنا عن مشروعك ولنستكشف البناء معًا</p>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section class="section">
+    <div class="container container-narrow">
+
+      <!-- What We Look For -->
+      <div class="card" style="margin-bottom: var(--space-12); background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);">
+        <h3>ما نبحث عنه</h3>
+        <div class="grid grid-2" style="margin-top: var(--space-6); gap: var(--space-6);">
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: var(--space-2);">✓ التوافق القطاعي</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-gray-600);">الصناعات الإبداعية (GameDev، المحتوى الرقمي، التصميم) أو DeepTech (HealthTech، NeuroTech، BioTech، AgriTech، GreenTech)</p>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: var(--space-2);">✓ المرحلة</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-gray-600);">ما قبل البذرة إلى البذرة. يفضل MVP أو نموذج أولي عامل، لكن الأفكار القوية مع مؤسسين ملتزمين مقبولة أيضًا.</p>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: var(--space-2);">✓ الفريق</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-gray-600);">1-3 مؤسسين ملتزمين مستعدين للعمل بدوام كامل على المشروع.</p>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: var(--space-2);">✓ الطموح</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-gray-600);">إمكانية خروج 10x في 5-7 سنوات. فرصة سوق إقليمية أو عالمية.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form name="founder-application-ar" method="POST" action="/ar/success.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="founder-application-ar">
+
+        <!-- Honeypot -->
+        <p class="hidden">
+          <label>لا تملأ هذا: <input name="bot-field"></label>
+        </p>
+
+        <!-- Personal Information -->
+        <h3 style="margin-bottom: var(--space-6);">عنك</h3>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="name">الاسم الكامل <span class="required">*</span></label>
+            <input type="text" id="name" name="name" class="form-input" required placeholder="الاسم الكامل">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">البريد الإلكتروني <span class="required">*</span></label>
+            <input type="email" id="email" name="email" class="form-input" required placeholder="email@example.com">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="phone">الهاتف</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+7 XXX XXX XX XX">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="linkedin">رابط LinkedIn</label>
+            <input type="url" id="linkedin" name="linkedin" class="form-input" placeholder="https://linkedin.com/in/...">
+          </div>
+        </div>
+
+        <!-- Startup Information -->
+        <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-6);">شركتك الناشئة</h3>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="startup-name">اسم الشركة الناشئة <span class="required">*</span></label>
+            <input type="text" id="startup-name" name="startup-name" class="form-input" required placeholder="اسم الشركة">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="website">رابط الموقع</label>
+            <input type="url" id="website" name="website" class="form-input" placeholder="https://example.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="one-liner">وصف من سطر واحد <span class="required">*</span></label>
+          <input type="text" id="one-liner" name="one-liner" class="form-input" required placeholder="نساعد X على فعل Y باستخدام Z">
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="sector">القطاع <span class="required">*</span></label>
+            <select id="sector" name="sector" class="form-select" required>
+              <option value="">اختر القطاع...</option>
+              <optgroup label="الصناعات الإبداعية">
+                <option value="gamedev">GameDev</option>
+                <option value="digital-content">المحتوى الرقمي</option>
+                <option value="design-ux">Design & UX</option>
+                <option value="other-creative">إبداعي آخر</option>
+              </optgroup>
+              <optgroup label="DeepTech">
+                <option value="healthtech">HealthTech / MentalTech</option>
+                <option value="neurotech">NeuroTech</option>
+                <option value="biotech">BioTech</option>
+                <option value="agritech">AgriTech</option>
+                <option value="greentech">GreenTech</option>
+                <option value="other-deeptech">DeepTech آخر</option>
+              </optgroup>
+              <optgroup label="منصة">
+                <option value="platform">منصة / سوق</option>
+                <option value="saas">B2B SaaS</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="stage">المرحلة <span class="required">*</span></label>
+            <select id="stage" name="stage" class="form-select" required>
+              <option value="">اختر المرحلة...</option>
+              <option value="idea">فكرة</option>
+              <option value="prototype">نموذج أولي</option>
+              <option value="mvp">MVP</option>
+              <option value="pmf">التوافق مع السوق</option>
+              <option value="growth">نمو</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="team-size">حجم الفريق</label>
+            <select id="team-size" name="team-size" class="form-select">
+              <option value="">اختر...</option>
+              <option value="1">مؤسس فردي</option>
+              <option value="2">مؤسسان مشاركان</option>
+              <option value="3">3 مؤسسين مشاركين</option>
+              <option value="4+">4+ أعضاء فريق</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fulltime">هل تعمل بدوام كامل على هذا؟ <span class="required">*</span></label>
+            <select id="fulltime" name="fulltime" class="form-select" required>
+              <option value="">اختر...</option>
+              <option value="yes">نعم، بدوام كامل</option>
+              <option value="soon">سأكون قريبًا</option>
+              <option value="no">لا، بدوام جزئي</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- The Opportunity -->
+        <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-6);">الفرصة</h3>
+
+        <div class="form-group">
+          <label class="form-label" for="problem">ما المشكلة التي تحلها؟ <span class="required">*</span></label>
+          <textarea id="problem" name="problem" class="form-textarea" required placeholder="صف المشكلة ومن يعاني منها..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="solution">ما هو حلك وميزتك التنافسية؟</label>
+          <textarea id="solution" name="solution" class="form-textarea" placeholder="ما الذي يجعل نهجك فريدًا؟ لماذا يمكن لفريقك أن يفوز؟"></textarea>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="raising">كم تجمع من التمويل؟</label>
+            <input type="text" id="raising" name="raising" class="form-input" placeholder="مثال: $100K">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="deck">رابط العرض التقديمي</label>
+            <input type="url" id="deck" name="deck" class="form-input" placeholder="https://docs.google.com/...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pitch-deck-file">رفع العرض التقديمي (PDF، الحد الأقصى 10 ميجابايت)</label>
+          <input type="file" id="pitch-deck-file" name="pitch-deck-file" class="form-input" accept=".pdf,.pptx,.ppt" style="padding: var(--space-3);">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="anything-else">هل هناك شيء آخر يجب أن نعرفه؟</label>
+          <textarea id="anything-else" name="anything-else" class="form-textarea" placeholder="عمليات خروج سابقة، خبرة ذات صلة، جذب حالي..."></textarea>
+        </div>
+
+        <!-- Consent -->
+        <div class="form-group" style="margin-top: var(--space-8);">
+          <label class="form-checkbox">
+            <input type="checkbox" name="consent" required>
+            <span>أوافق على مشاركة هذه المعلومات مع Creata Ventures لأغراض التقييم. <span class="required">*</span></span>
+          </label>
+        </div>
+
+        <!-- Submit -->
+        <div style="margin-top: var(--space-8);">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">إرسال الطلب</button>
+        </div>
+
+        <p style="text-align: center; margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-gray-500);">
+          نراجع جميع الطلبات ونرد خلال أسبوعين.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color: var(--color-white);">
+            <img src="../images/cv_logo_white.svg" alt="Creata Ventures" class="logo-img">
+          </a>
+          <p>استوديو استثماري مسجل في AIFC يبني مستقبل الصناعات الإبداعية والتكنولوجيا العميقة في آسيا الوسطى.</p>
+        </div>
+        <div>
+          <h4>التنقل</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">عن الشركة</a></li>
+            <li><a href="team.html">الفريق</a></li>
+            <li><a href="portfolio.html">المحفظة</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>للمؤسسين</h4>
+          <ul class="footer-links">
+            <li><a href="apply.html">تقديم طلب</a></li>
+            <li><a href="about.html#process">عمليتنا</a></li>
+            <li><a href="about.html#thesis">أطروحة الاستثمار</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>اتصل بنا</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:david@creata.team">david@creata.team</a></li>
+            <li><a href="tel:+77765329977">+7 776 532 99 77</a></li>
+            <li>AIFC، أستانا، كازاخستان</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025–2026 Creata Ventures Studio Ltd. جميع الحقوق محفوظة.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="Telegram">tg</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
